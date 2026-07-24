@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>문의하기 — RVH</title><link rel="stylesheet" href="style.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>문의하기 — RVH</title><link rel="stylesheet" href="style.css"><script src="contact.js" defer></script></head>
 <body>
   <a class="site-logo" href="index.html" aria-label="REVIVE HOUSE 메인으로 이동"><span class="logo-spinner"><img class="logo-face logo-face--front" src="images/revive-house-symbol.png" alt="REVIVE HOUSE"><img class="logo-face logo-face--back" src="images/revive-house-symbol.png" alt=""></span></a>
   <header class="site-header"><nav class="main-nav" aria-label="주요 메뉴"><a href="about.html">회사소개</a><a href="logo-design.html">로고디자인</a><a href="package-design.html">패키지디자인</a><a href="portfolio.html">포트폴리오</a><a href="contact.html">문의하기</a></nav></header>
@@ -11,26 +11,35 @@
       <p>새로운 프로젝트를 준비하고 계신가요?<br>아래 내용을 남겨주시면 확인 후 연락드리겠습니다.</p>
     </div>
 
-    <form class="contact-form" action="#" method="post">
+    <form class="contact-form" action="https://formsubmit.co/rvh0617@naver.com" method="post">
+      <input type="hidden" name="_subject" value="[REVIVE HOUSE] 홈페이지 문의가 도착했습니다">
+      <input type="hidden" name="_next" value="https://rvhdesign.github.io/contact.html?sent=1">
+      <input type="hidden" name="_template" value="table">
+      <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+      <p class="form-success" role="status" aria-live="polite">
+        문의가 접수되었습니다. 확인 후 연락드리겠습니다.
+      </p>
+
       <div class="form-field">
         <label for="contact-name">이름 <span class="required" aria-label="필수">*</span></label>
-        <input id="contact-name" name="name" type="text" autocomplete="name" required>
+        <input id="contact-name" name="이름" type="text" autocomplete="name" required>
       </div>
 
       <fieldset class="form-field">
         <legend>연락처 <span class="required" aria-label="필수">*</span></legend>
         <div class="phone-fields">
-          <input name="phone1" type="tel" inputmode="numeric" autocomplete="tel-area-code" maxlength="3" aria-label="연락처 앞자리" required>
+          <input name="연락처_앞자리" type="tel" inputmode="numeric" autocomplete="tel-area-code" maxlength="3" aria-label="연락처 앞자리" required>
           <span aria-hidden="true">—</span>
-          <input name="phone2" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 가운데 자리" required>
+          <input name="연락처_가운데자리" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 가운데 자리" required>
           <span aria-hidden="true">—</span>
-          <input name="phone3" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 뒷자리" required>
+          <input name="연락처_뒷자리" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 뒷자리" required>
         </div>
       </fieldset>
 
       <div class="form-field">
         <label for="contact-message">내용 <span class="required" aria-label="필수">*</span></label>
-        <textarea id="contact-message" name="message" rows="8" required></textarea>
+        <textarea id="contact-message" name="문의내용" rows="8" required></textarea>
       </div>
 
       <div class="form-field privacy-field">
@@ -52,7 +61,7 @@
         </div>
 
         <label class="privacy-check">
-          <input name="privacy-agreement" type="checkbox" required>
+          <input name="개인정보_수집이용_동의" type="checkbox" value="동의함" required>
           <span>개인정보 수집 및 이용에 동의합니다.</span>
         </label>
       </div>
