@@ -1,73 +1,232 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>문의하기 — RVH</title><link rel="stylesheet" href="style.css"><script src="contact.js" defer></script></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="REVIVE HOUSE 프로젝트 문의">
+  <title>문의하기 — REVIVE HOUSE</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="contact.js" defer></script>
+</head>
 <body>
-  <a class="site-logo" href="index.html" aria-label="REVIVE HOUSE 메인으로 이동"><span class="logo-spinner"><img class="logo-face logo-face--front" src="images/revive-house-symbol.png" alt="REVIVE HOUSE"><img class="logo-face logo-face--back" src="images/revive-house-symbol.png" alt=""></span></a>
-  <header class="site-header"><nav class="main-nav" aria-label="주요 메뉴"><a href="about.html">회사소개</a><a href="logo-design.html">로고디자인</a><a href="package-design.html">패키지디자인</a><a href="portfolio.html">포트폴리오</a><a href="contact.html">문의하기</a></nav></header>
+  <a class="site-logo" href="index.html" aria-label="REVIVE HOUSE 메인으로 이동">
+    <span class="logo-spinner">
+      <img class="logo-face logo-face--front" src="images/revive-house-symbol.png" alt="REVIVE HOUSE">
+      <img class="logo-face logo-face--back" src="images/revive-house-symbol.png" alt="">
+    </span>
+  </a>
+
+  <header class="site-header">
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <a href="about.html">회사소개</a>
+      <a href="logo-design.html">로고디자인</a>
+      <a href="package-design.html">패키지디자인</a>
+      <a href="portfolio.html">포트폴리오</a>
+      <a href="contact.html">문의하기</a>
+    </nav>
+  </header>
+
   <main class="page contact-page">
     <div class="contact-intro">
-      <p class="eyebrow">CONTACT</p>
+      <p class="eyebrow">PROJECT INQUIRY</p>
       <h1>문의하기</h1>
-      <p>새로운 프로젝트를 준비하고 계신가요?<br>아래 내용을 남겨주시면 확인 후 연락드리겠습니다.</p>
+      <p>프로젝트에 대해 아는 만큼만 편하게 작성해 주세요. 내용을 검토한 뒤 영업일 기준 1–2일 이내에 연락드리겠습니다.</p>
+
+      <dl class="contact-guide">
+        <div><dt>01</dt><dd>기본 정보</dd></div>
+        <div><dt>02</dt><dd>제작 사양</dd></div>
+        <div><dt>03</dt><dd>자료 및 일정</dd></div>
+      </dl>
     </div>
 
-    <form class="contact-form" action="https://formsubmit.co/rvh0617@naver.com" method="post">
-      <input type="hidden" name="_subject" value="[REVIVE HOUSE] 홈페이지 문의가 도착했습니다">
+    <form class="contact-form" action="https://formsubmit.co/rvhdesign@naver.com" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="[REVIVE HOUSE] 새로운 프로젝트 문의">
       <input type="hidden" name="_next" value="https://rvhdesign.github.io/contact.html?sent=1">
       <input type="hidden" name="_template" value="table">
       <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
 
       <p class="form-success" role="status" aria-live="polite">
-        문의가 접수되었습니다. 확인 후 연락드리겠습니다.
+        문의가 접수되었습니다. 내용을 확인한 뒤 연락드리겠습니다.
       </p>
 
-      <div class="form-field">
-        <label for="contact-name">이름 <span class="required" aria-label="필수">*</span></label>
-        <input id="contact-name" name="이름" type="text" autocomplete="name" required>
-      </div>
-
-      <fieldset class="form-field">
-        <legend>연락처 <span class="required" aria-label="필수">*</span></legend>
-        <div class="phone-fields">
-          <input name="연락처_앞자리" type="tel" inputmode="numeric" autocomplete="tel-area-code" maxlength="3" aria-label="연락처 앞자리" required>
-          <span aria-hidden="true">—</span>
-          <input name="연락처_가운데자리" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 가운데 자리" required>
-          <span aria-hidden="true">—</span>
-          <input name="연락처_뒷자리" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 뒷자리" required>
+      <section class="form-section" aria-labelledby="basic-info-title">
+        <div class="form-section-heading">
+          <span>01</span>
+          <div>
+            <h2 id="basic-info-title">기본 정보</h2>
+            <p><span class="required">*</span> 표시는 필수 입력 항목입니다.</p>
+          </div>
         </div>
-      </fieldset>
 
-      <div class="form-field">
-        <label for="contact-message">내용 <span class="required" aria-label="필수">*</span></label>
-        <textarea id="contact-message" name="문의내용" rows="8" required></textarea>
-      </div>
+        <div class="form-row form-row--two">
+          <div class="form-field">
+            <label for="company">업체명 <span class="required" aria-label="필수">*</span></label>
+            <input id="company" name="업체명" type="text" autocomplete="organization" required>
+          </div>
+          <div class="form-field">
+            <label for="manager">담당자명 <span class="required" aria-label="필수">*</span></label>
+            <input id="manager" name="담당자명" type="text" autocomplete="name" required>
+          </div>
+        </div>
+
+        <div class="form-row form-row--two">
+          <fieldset class="form-field">
+            <legend>담당자 연락처 <span class="required" aria-label="필수">*</span></legend>
+            <div class="phone-fields">
+              <input name="연락처_앞자리" type="tel" inputmode="numeric" autocomplete="tel-area-code" maxlength="3" aria-label="연락처 앞자리" required>
+              <span aria-hidden="true">—</span>
+              <input name="연락처_가운데자리" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 가운데 자리" required>
+              <span aria-hidden="true">—</span>
+              <input name="연락처_뒷자리" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 뒷자리" required>
+            </div>
+          </fieldset>
+          <div class="form-field">
+            <label for="email">담당자 이메일 <span class="required" aria-label="필수">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="spec-title">
+        <div class="form-section-heading">
+          <span>02</span>
+          <div>
+            <h2 id="spec-title">제작 사양</h2>
+            <p>정확하지 않아도 예상 범위로 작성해 주세요.</p>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="product-info">패키지에 들어가는 제품과 중량</label>
+          <input id="product-info" name="제품과_중량" type="text" placeholder="예: 화장품 용기 50ml / 약 120g">
+        </div>
+
+        <div class="form-row form-row--two">
+          <div class="form-field">
+            <label for="package-size">제작 사이즈</label>
+            <input id="package-size" name="제작_사이즈" type="text" placeholder="예: 가로 120 × 세로 180 × 높이 60mm">
+          </div>
+          <div class="form-field">
+            <label for="quantity">예상 제작 수량 <span class="required" aria-label="필수">*</span></label>
+            <input id="quantity" name="예상_제작수량" type="text" inputmode="numeric" placeholder="예: 1,000개" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="budget">예상 예산 <span class="required" aria-label="필수">*</span></label>
+          <input id="budget" name="예상_예산" type="text" placeholder="예: 디자인 및 제작 포함 500만원 내외" required>
+        </div>
+
+        <fieldset class="form-field option-field">
+          <legend>제품 형태를 선택해 주세요 <span class="required" aria-label="필수">*</span></legend>
+          <div class="option-grid">
+            <label><input type="checkbox" name="제품형태[]" value="단상자형"><span>단상자형</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="슬리브형"><span>슬리브형</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="Y형 상하 조립형"><span>Y형 상하 조립형</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="G형 상하뚜껑형"><span>G형 상하뚜껑형</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="커스텀형"><span>커스텀형</span></label>
+          </div>
+          <label class="other-option">
+            <input type="checkbox" name="제품형태[]" value="기타">
+            <span>기타</span>
+            <input name="제품형태_기타설명" type="text" aria-label="기타 제품 형태" placeholder="직접 입력">
+          </label>
+        </fieldset>
+      </section>
+
+      <section class="form-section" aria-labelledby="schedule-title">
+        <div class="form-section-heading">
+          <span>03</span>
+          <div>
+            <h2 id="schedule-title">자료 및 일정</h2>
+            <p>보유한 자료가 있다면 함께 보내주세요.</p>
+          </div>
+        </div>
+
+        <div class="form-row form-row--two">
+          <div class="form-field">
+            <label for="reference-file">기획 및 레퍼런스 파일</label>
+            <label class="file-upload" for="reference-file">
+              <span>파일 선택</span>
+              <small>PDF, JPG, PNG, ZIP · 최대 10MB</small>
+            </label>
+            <input class="native-file-input" id="reference-file" name="기획_레퍼런스_파일" type="file" accept=".pdf,.jpg,.jpeg,.png,.zip">
+          </div>
+          <div class="form-field">
+            <label for="production-file">제작에 필요한 기타 파일</label>
+            <label class="file-upload" for="production-file">
+              <span>파일 선택</span>
+              <small>AI, PDF, JPG, PNG, ZIP · 최대 10MB</small>
+            </label>
+            <input class="native-file-input" id="production-file" name="기타_제작_파일" type="file" accept=".ai,.pdf,.jpg,.jpeg,.png,.zip">
+          </div>
+        </div>
+
+        <div class="form-row form-row--two">
+          <div class="form-field">
+            <label for="deadline">예상 납기 일정 <span class="required" aria-label="필수">*</span></label>
+            <input id="deadline" name="예상_납기일" type="date" required>
+          </div>
+          <div class="form-field">
+            <label for="delivery-area">납품 받을 지역</label>
+            <input id="delivery-area" name="납품_지역" type="text" placeholder="예: 부산광역시">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="details">프로젝트에 대해 자세히 알려주세요 <span class="required" aria-label="필수">*</span></label>
+          <textarea id="details" name="상세_문의내용" rows="8" placeholder="브랜드 소개, 원하는 분위기, 필요한 작업 범위와 참고사항 등을 자유롭게 작성해 주세요." required></textarea>
+        </div>
+
+        <fieldset class="form-field option-field">
+          <legend>어떤 경로로 알게 되셨나요? <span class="required" aria-label="필수">*</span></legend>
+          <div class="option-grid option-grid--radio">
+            <label><input type="radio" name="유입경로" value="네이버 검색" required><span>네이버 검색</span></label>
+            <label><input type="radio" name="유입경로" value="네이버 검색광고"><span>네이버 검색광고</span></label>
+            <label><input type="radio" name="유입경로" value="기타 광고"><span>기타 광고</span></label>
+            <label><input type="radio" name="유입경로" value="인스타그램"><span>인스타그램</span></label>
+            <label><input type="radio" name="유입경로" value="유튜브"><span>유튜브</span></label>
+            <label><input type="radio" name="유입경로" value="핀터레스트"><span>핀터레스트</span></label>
+            <label><input type="radio" name="유입경로" value="지인소개"><span>지인 소개</span></label>
+          </div>
+          <label class="other-option">
+            <input type="radio" name="유입경로" value="기타">
+            <span>기타</span>
+            <input name="유입경로_기타설명" type="text" aria-label="기타 유입 경로" placeholder="직접 입력">
+          </label>
+        </fieldset>
+      </section>
 
       <div class="form-field privacy-field">
         <p class="form-label">개인정보 수집 및 이용 동의 <span class="required" aria-label="필수">*</span></p>
         <div class="privacy-text" tabindex="0">
-          <p>리바이브하우스(이하 ‘회사’)는 개인정보 보호법 제30조에 따라 정보 주체의 개인정보를 보호하고 관련 고충을 신속하고 원활하게 처리하기 위하여 다음과 같이 개인정보 처리방침을 안내합니다.</p>
-
-          <h2>제1조 (개인정보의 수집 및 이용 목적)</h2>
-          <p>회사는 프로젝트 상담, 문의 내용 확인, 상담 결과 회신을 목적으로 개인정보를 처리합니다. 수집한 개인정보는 해당 목적 이외의 용도로 이용되지 않습니다.</p>
-
-          <h2>제2조 (수집하는 개인정보 항목)</h2>
-          <p>필수 항목: 이름, 연락처, 문의 내용</p>
-
-          <h2>제3조 (개인정보의 보유 및 이용 기간)</h2>
-          <p>수집된 개인정보는 문의 상담 종료 후 1년간 보관하며, 관계 법령에 별도의 보존 의무가 있는 경우 해당 기간 동안 보관합니다.</p>
-
-          <h2>제4조 (동의 거부 권리)</h2>
-          <p>개인정보 수집 및 이용에 대한 동의를 거부할 수 있습니다. 다만 필수 정보 수집에 동의하지 않을 경우 문의 접수가 제한될 수 있습니다.</p>
+          <p>리바이브하우스(이하 ‘회사’)는 프로젝트 상담 및 문의 회신을 위해 아래와 같이 개인정보를 수집하고 이용합니다.</p>
+          <h2>수집 항목</h2>
+          <p>업체명, 담당자명, 연락처, 이메일, 문의 내용 및 이용자가 직접 첨부한 자료</p>
+          <h2>수집 및 이용 목적</h2>
+          <p>프로젝트 상담, 견적 안내, 문의 내용 확인과 상담 결과 회신</p>
+          <h2>보유 및 이용 기간</h2>
+          <p>문의 상담 종료 후 1년간 보관하며, 관계 법령에 별도의 보존 의무가 있는 경우 해당 기간 동안 보관합니다.</p>
+          <h2>동의 거부 권리</h2>
+          <p>개인정보 수집 및 이용 동의를 거부할 수 있으나, 필수 항목에 동의하지 않을 경우 문의 접수가 제한될 수 있습니다.</p>
         </div>
-
         <label class="privacy-check">
           <input name="개인정보_수집이용_동의" type="checkbox" value="동의함" required>
           <span>개인정보 수집 및 이용에 동의합니다.</span>
         </label>
       </div>
 
-      <button class="submit-button" type="submit">문의 보내기 <span aria-hidden="true">→</span></button>
+      <button class="submit-button" type="submit">
+        <span>프로젝트 문의 보내기</span>
+        <span aria-hidden="true">→</span>
+      </button>
     </form>
   </main>
-  <footer class="site-footer"><address>경기도 김포시 김포한강10로 133번길 75 리브타워 816호</address><a href="mailto:hello@rvh.co.kr">이메일</a><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">인스타그램</a></footer>
-</body></html>
+
+  <footer class="site-footer">
+    <address>경기도 김포시 김포한강10로 133번길 75 리브타워 816호</address>
+    <a href="mailto:rvhdesign@naver.com">이메일</a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">인스타그램</a>
+  </footer>
+</body>
+</html>

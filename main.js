@@ -1,4 +1,15 @@
 const revealItems = document.querySelectorAll(".scroll-reveal");
+const staggerGroups = document.querySelectorAll(
+  ".question-grid, .story-gallery-grid, .service-list, .experience-thumbnails, .experience-flow"
+);
+
+staggerGroups.forEach((group) => {
+  const items = group.querySelectorAll(".scroll-reveal, :scope > div");
+
+  items.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
+  });
+});
 
 if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("reveal-ready"));

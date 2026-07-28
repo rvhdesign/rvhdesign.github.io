@@ -1,9 +1,98 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>패키지디자인 — RVH</title><link rel="stylesheet" href="style.css"></head>
-<body>
-  <a class="site-logo" href="index.html" aria-label="REVIVE HOUSE 메인으로 이동"><span class="logo-spinner"><img class="logo-face logo-face--front" src="images/revive-house-symbol.png" alt="REVIVE HOUSE"><img class="logo-face logo-face--back" src="images/revive-house-symbol.png" alt=""></span></a>
-  <header class="site-header"><nav class="main-nav" aria-label="주요 메뉴"><a href="about.html">회사소개</a><a href="logo-design.html">로고디자인</a><a href="package-design.html">패키지디자인</a><a href="portfolio.html">포트폴리오</a><a href="contact.html">문의하기</a></nav></header>
-  <main class="page"><p class="eyebrow">PACKAGE DESIGN</p><h1>패키지디자인</h1><p>패키지 디자인 프로젝트가 들어갈 자리입니다.</p></main>
-  <footer class="site-footer"><address>경기도 김포시 김포한강10로 133번길 75 리브타워 816호</address><a href="mailto:hello@rvh.co.kr">이메일</a><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">인스타그램</a></footer>
-</body></html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="REVIVE HOUSE 패키지 박스 종류 안내">
+  <title>Box Types — REVIVE HOUSE</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="package.js" defer></script>
+</head>
+<body class="box-menu-body">
+  <a class="site-logo" href="index.html" aria-label="REVIVE HOUSE 메인으로 이동">
+    <span class="logo-spinner">
+      <img class="logo-face logo-face--front" src="images/revive-house-symbol.png" alt="REVIVE HOUSE">
+      <img class="logo-face logo-face--back" src="images/revive-house-symbol.png" alt="">
+    </span>
+  </a>
+
+  <header class="site-header">
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <a href="about.html">회사소개</a>
+      <a href="logo-design.html">로고디자인</a>
+      <a href="package-design.html" aria-current="page">패키지디자인</a>
+      <a href="portfolio.html">포트폴리오</a>
+      <a href="contact.html">문의하기</a>
+    </nav>
+  </header>
+
+  <main class="box-menu-page">
+    <section class="box-menu-hero">
+      <div class="box-menu-heading">
+        <p>PACKAGING · BOX TYPES</p>
+        <h1>박스의 형태는<br>브랜드 경험을 만듭니다.</h1>
+        <span>형태를 선택해 구조와 특징을 확인해 보세요.</span>
+      </div>
+
+      <div class="box-menu-interface">
+        <nav class="box-type-nav" aria-label="박스 종류">
+          <button class="box-type-button is-active" type="button" data-box="carton" aria-pressed="true">
+            <span>01</span><strong>단상자</strong><small>Folding Carton</small>
+          </button>
+          <button class="box-type-button" type="button" data-box="sleeve" aria-pressed="false">
+            <span>02</span><strong>슬리브 박스</strong><small>Sleeve Box</small>
+          </button>
+          <button class="box-type-button" type="button" data-box="ybox" aria-pressed="false">
+            <span>03</span><strong>싸바리 · Y형</strong><small>Rigid / Y-type</small>
+          </button>
+          <button class="box-type-button" type="button" data-box="gbox" aria-pressed="false">
+            <span>04</span><strong>표지바리 · G형</strong><small>Book / G-type</small>
+          </button>
+          <button class="box-type-button" type="button" data-box="custom" aria-pressed="false">
+            <span>05</span><strong>커스텀 박스</strong><small>Custom Structure</small>
+          </button>
+        </nav>
+
+        <div class="box-stage" aria-live="polite">
+          <div class="box-stage-label">
+            <span id="box-stage-index">01 / 05</span>
+            <p id="box-stage-category">FOLDING CARTON</p>
+          </div>
+
+          <figure class="box-photo-stage">
+            <img class="box-visual-group is-active" data-box-visual="carton" src="images/boxes/folding-carton.png" alt="뚜껑이 열린 단상자">
+            <img class="box-visual-group" data-box-visual="sleeve" src="images/boxes/sleeve-box.png" alt="속상자가 열린 슬리브 박스">
+            <img class="box-visual-group" data-box-visual="ybox" src="images/boxes/rigid-y-box.png" alt="뚜껑과 본체가 상하로 분리된 싸바리 Y형 박스">
+            <img class="box-visual-group" data-box-visual="gbox" src="images/boxes/book-g-box.png" alt="뒤쪽 경첩으로 여닫는 표지바리 G형 박스">
+            <img class="box-visual-group" data-box-visual="custom" src="images/boxes/custom-box.png" alt="리본 손잡이가 있는 커스텀 박스">
+          </figure>
+
+          <div class="box-stage-copy">
+            <h2 id="box-stage-title">단상자</h2>
+            <p id="box-stage-description">한 장의 인쇄지를 접고 조립하는 가장 기본적인 패키지입니다. 가볍고 효율적이며 다양한 제품군에 유연하게 적용됩니다.</p>
+            <a href="contact.html">이 형태로 문의하기 <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <div class="box-stage-progress" aria-hidden="true">
+            <span id="box-stage-progress"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="box-guide">
+      <div>
+        <p>STRUCTURE GUIDE</p>
+        <h2>어떤 박스를 선택해야 할지<br>고민하지 않으셔도 됩니다.</h2>
+      </div>
+      <p>제품의 크기와 무게, 유통 방식, 제작 수량과 예산을 함께 살펴 가장 적합한 구조를 제안합니다. 정해진 형태에 브랜드를 맞추기보다 브랜드 경험에 맞는 형태를 설계합니다.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <address>경기도 김포시 김포한강10로 133번길 75 리브타워 816호</address>
+    <a href="mailto:rvhdesign@naver.com">이메일</a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">인스타그램</a>
+  </footer>
+</body>
+</html>
