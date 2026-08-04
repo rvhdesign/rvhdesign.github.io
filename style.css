@@ -28,6 +28,81 @@ a {
   text-decoration: none;
 }
 
+.kakao-chat {
+  position: fixed;
+  z-index: 100;
+  right: clamp(18px, 2.4vw, 38px);
+  bottom: clamp(18px, 2.4vw, 38px);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 56px;
+  padding: 7px 18px 7px 8px;
+  border: 1px solid rgba(57, 31, 31, .08);
+  border-radius: 999px;
+  color: #3c1e1e;
+  background: #fee500;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .18);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.kakao-chat:hover,
+.kakao-chat:focus-visible {
+  transform: translateY(-3px);
+  background: #ffeb33;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .24);
+}
+
+.kakao-chat:focus-visible {
+  outline: 3px solid rgba(60, 30, 30, .35);
+  outline-offset: 3px;
+}
+
+.kakao-chat__bubble {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #fee500;
+  background: #3c1e1e;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: -.04em;
+}
+
+.kakao-chat__bubble::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  bottom: 1px;
+  width: 9px;
+  height: 9px;
+  background: #3c1e1e;
+  transform: rotate(28deg);
+}
+
+@media (max-width: 600px) {
+  .kakao-chat {
+    min-width: 54px;
+    min-height: 54px;
+    padding: 6px;
+  }
+
+  .kakao-chat__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
 .site-logo {
   position: fixed;
   z-index: 20;
@@ -37,10 +112,14 @@ a {
   place-items: center;
   width: clamp(36px, 3.5vw, 56px);
   aspect-ratio: 1;
-  perspective: none;
+  perspective: 280px;
+  perspective-origin: 50% 42%;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .16));
 }
 
 .logo-spinner {
+  --logo-depth: 24px;
+  --logo-half: calc(clamp(36px, 3.5vw, 56px) / 2);
   position: relative;
   display: block;
   width: 100%;
@@ -51,10 +130,66 @@ a {
   will-change: transform;
 }
 
+.logo-edge {
+  position: absolute;
+  display: block;
+  background: linear-gradient(90deg, #151515, #777672 48%, #292928);
+  backface-visibility: visible;
+  pointer-events: none;
+}
+
+.logo-edge--right,
+.logo-edge--left {
+  top: 0;
+  left: calc(50% - var(--logo-depth) / 2);
+  width: var(--logo-depth);
+  height: 100%;
+}
+
+.logo-edge--right { transform: rotateY(90deg) translateZ(var(--logo-half)); }
+.logo-edge--left { transform: rotateY(-90deg) translateZ(var(--logo-half)); }
+
+.logo-edge--top,
+.logo-edge--bottom {
+  top: calc(50% - var(--logo-depth) / 2);
+  left: 0;
+  width: 100%;
+  height: var(--logo-depth);
+}
+
+.logo-edge--top { transform: rotateX(90deg) translateZ(var(--logo-half)); }
+.logo-edge--bottom { transform: rotateX(-90deg) translateZ(var(--logo-half)); }
+
+/* Two masked inner plates give the flat artwork a visible, metallic edge. */
+.logo-spinner::before,
+.logo-spinner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #161616 0%, #969590 42%, #2a2a29 100%);
+  -webkit-mask: url("images/revive-house-symbol.png") center / contain no-repeat;
+  mask: url("images/revive-house-symbol.png") center / contain no-repeat;
+  mask-mode: luminance;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+
+.logo-spinner::before {
+  transform: translateZ(4px);
+  filter:
+    drop-shadow(0 0 0 #71716e)
+    drop-shadow(0 0 1px rgba(255, 255, 255, .45));
+}
+
+.logo-spinner::after {
+  transform: rotateY(180deg) translateZ(4px);
+  filter: drop-shadow(0 0 0 #202020);
+}
+
 .site-logo:hover .logo-spinner,
 .site-logo:focus-visible .logo-spinner {
   animation: none;
-  transform: rotateY(0deg);
+  transform: rotateX(-7deg) rotateY(0deg);
   transition-duration: .7s;
 }
 
@@ -70,23 +205,24 @@ a {
 }
 
 .logo-face--front {
-  transform: translateZ(0);
+  transform: translateZ(12px);
   mix-blend-mode: multiply;
+  filter: drop-shadow(1px 0 0 rgba(255, 255, 255, .35));
 }
 
 .logo-face--back {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(12px);
   filter: invert(1);
   mix-blend-mode: screen;
 }
 
 @keyframes logo-rotate-right {
   from {
-    transform: rotateY(0deg);
+    transform: rotateX(-7deg) rotateY(0deg);
   }
 
   to {
-    transform: rotateY(360deg);
+    transform: rotateX(-7deg) rotateY(360deg);
   }
 }
 
