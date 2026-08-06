@@ -27,65 +27,162 @@
     </nav>
   </header>
 
-  <main>
-    <section class="hero" aria-label="메인 비주얼">
-      <div class="hero-left">
-        <div class="hero-copy">
-          <p class="eyebrow">BRAND DESIGN STUDIO</p>
-          <h1>Ideas shaped<br>with clarity.</h1>
-          <p class="hero-description">브랜드의 본질을 발견하고<br>선명한 시각 언어로 만듭니다.</p>
-        </div>
-        <p class="hero-index">01 <span>/ 04</span></p>
+  <main class="home-page">
+    <section class="home-hero scroll-reveal" aria-label="메인 비주얼">
+      <div class="home-hero__copy">
+        <p class="eyebrow">RVH DESIGN STUDIO</p>
+        <h1>브랜드의 시작을<br>디자인합니다.</h1>
+        <p class="home-hero__description">
+          브랜드는 단순히 예쁜 디자인으로 완성되지 않습니다.<br>
+          브랜드의 본질을 발견하고,<br>
+          오래 기억되는 경험을 함께 만들어갑니다.
+        </p>
       </div>
-
-      <div class="hero-right">
-        <div class="hero-note">
-          <span class="line"></span>
-          <p>RVH DESIGN</p>
-          <small>Logo · Package · Identity</small>
+      <div class="home-hero__media">
+        <div class="home-hero__card">
+          <img src="images/about/tone-paper-products.png" alt="패키지 포트폴리오 이미지">
+        </div>
+        <div class="home-hero__meta">
+          <span>향수 패키지</span>
+          <span>게임 패키지</span>
+          <span>브랜드 박스</span>
         </div>
       </div>
     </section>
 
-    <section class="project-strip project-strip--wide scroll-reveal">
-      <p class="section-number">01</p>
-      <div>
-        <p class="eyebrow">SELECTED WORK</p>
-        <h2>Brand Identity</h2>
+    <section class="home-section home-about scroll-reveal" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">ABOUT</p>
+        <h2>저희는 브랜드를 함께 만드는 디자인 스튜디오입니다.</h2>
       </div>
-      <span class="project-arrow" aria-hidden="true">↗</span>
+      <div class="section-copy">
+        <p>
+          저희도 직접 브랜드를 운영하는 판매자입니다.<br>
+          제품을 만들고, 판매하며, 브랜드를 성장시키는 과정을 직접 경험했기에<br>
+          단순히 보기 좋은 디자인이 아니라<br>
+          브랜드가 오래 사랑받을 수 있는 디자인을 고민합니다.
+        </p>
+      </div>
     </section>
 
-    <section class="project-grid">
-      <article class="project-card project-card--light scroll-reveal">
-        <p class="section-number">02</p>
+    <section class="home-section home-services scroll-reveal" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">SERVICES</p>
+        <h2>브랜드의 시작과 성장까지 함께 설계합니다.</h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="service-icon" aria-hidden="true"></span>
+          <h3>패키지 디자인</h3>
+          <p>브랜드의 첫인상을 만드는 가장 중요한 디자인입니다.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon" aria-hidden="true"></span>
+          <h3>브랜드 아이덴티티</h3>
+          <p>브랜드의 방향과 철학을 시각적으로 표현합니다.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon" aria-hidden="true"></span>
+          <h3>로고 디자인</h3>
+          <p>브랜드를 가장 잘 설명하는 상징을 만듭니다.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon" aria-hidden="true"></span>
+          <h3>인쇄 컨설팅</h3>
+          <p>재질, 후가공, 제작까지 함께 고민합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section home-portfolio scroll-reveal" id="portfolio">
+      <div class="section-heading section-heading--split">
         <div>
-          <p class="eyebrow">LOGO DESIGN</p>
-          <h2>Symbols with meaning</h2>
+          <p class="eyebrow">PORTFOLIO</p>
+          <h2>Selected Works</h2>
         </div>
-      </article>
-      <article class="project-card project-card--dark scroll-reveal">
-        <p class="section-number">03</p>
-        <div>
-          <p class="eyebrow">PACKAGE DESIGN</p>
-          <h2>Objects worth keeping</h2>
-        </div>
-      </article>
+        <p class="section-copy-inline">브랜드와 함께 만든 프로젝트를 소개합니다.</p>
+      </div>
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <img src="images/about/story-hero.png" alt="톤페이퍼 작업물">
+          <div class="portfolio-card__body">
+            <h3>톤페이퍼</h3>
+            <p>감각적인 제품 패키지와 브랜드 경험을 설계합니다.</p>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <img src="images/boxes/sleeve-box.png" alt="향수 패키지 작업물">
+          <div class="portfolio-card__body">
+            <h3>향수 패키지</h3>
+            <p>제품의 가치와 분위기를 함께 전달하는 패키지입니다.</p>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <img src="images/boxes/rigid-y-box.png" alt="게임 패키지 작업물">
+          <div class="portfolio-card__body">
+            <h3>게임 패키지</h3>
+            <p>몰입감 있는 경험을 만들기 위한 포장 언어입니다.</p>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <img src="images/boxes/custom-box.png" alt="브랜드 패키지 작업물">
+          <div class="portfolio-card__body">
+            <h3>브랜드 패키지</h3>
+            <p>브랜드 철학을 담아내는 정제된 패키지 제안입니다.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="project-strip project-strip--outline project-strip--cta scroll-reveal">
-      <p class="section-number">04</p>
+    <section class="home-section home-why scroll-reveal" id="why-rvh">
+      <div class="section-heading">
+        <p class="eyebrow">WHY RVH</p>
+        <h2>왜 RVH DESIGN인가요?</h2>
+      </div>
+      <div class="why-grid">
+        <article class="why-card">
+          <h3>브랜드를 이해합니다.</h3>
+          <p>저희도 직접 브랜드를 운영하며 판매자의 고민을 잘 알고 있습니다.</p>
+        </article>
+        <article class="why-card">
+          <h3>디자인 그 이상</h3>
+          <p>디자인뿐 아니라 제작과 인쇄까지 함께 고민합니다.</p>
+        </article>
+        <article class="why-card">
+          <h3>함께 성장합니다.</h3>
+          <p>프로젝트가 끝나는 것이 아니라 브랜드의 성장을 함께하는 파트너가 되고자 합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section home-process scroll-reveal" id="process">
+      <div class="section-heading">
+        <p class="eyebrow">PROCESS</p>
+        <h2>브랜드가 완성되기까지의 과정입니다.</h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step"><span>01</span><strong>상담</strong><p>브랜드와 제품을 이해합니다.</p></div>
+        <div class="process-step"><span>02</span><strong>기획</strong><p>시장과 브랜드를 분석합니다.</p></div>
+        <div class="process-step"><span>03</span><strong>디자인</strong><p>브랜드에 맞는 방향을 제안합니다.</p></div>
+        <div class="process-step"><span>04</span><strong>제작</strong><p>인쇄와 후가공까지 함께합니다.</p></div>
+        <div class="process-step"><span>05</span><strong>완성</strong><p>브랜드가 고객에게 전달됩니다.</p></div>
+      </div>
+    </section>
+
+    <section class="home-section home-cta scroll-reveal" id="contact">
       <div class="cta-content">
         <p class="eyebrow">LET'S WORK TOGETHER</p>
         <h2>브랜드를 시작할 준비가 되셨나요?</h2>
         <p class="cta-description">
-          좋은 브랜드는<br>
-          좋은 시작에서 만들어집니다.<br>
-          그 첫걸음을<br>
+          브랜드의 시작,<br>
           저희가 함께하겠습니다.
         </p>
       </div>
-      <a class="text-link" href="contact.html">프로젝트 문의하기</a>
+      <div class="cta-actions">
+        <a class="text-link" href="contact.html">프로젝트 문의하기</a>
+        <a class="text-link text-link--soft" href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer">카카오톡 상담하기</a>
+      </div>
+      <p class="cta-note">평균 24시간 이내 답변<br>무료 상담 및 견적 제공</p>
     </section>
   </main>
 
