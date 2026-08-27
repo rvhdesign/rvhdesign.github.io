@@ -3,6 +3,19 @@ const staggerGroups = document.querySelectorAll(
   ".question-grid, .story-gallery-grid, .service-list, .experience-thumbnails, .experience-flow"
 );
 
+const philosophySection = document.querySelector(".home-body .brand-philosophy");
+
+if (philosophySection && "IntersectionObserver" in window) {
+  const philosophyObserver = new IntersectionObserver(
+    ([entry]) => {
+      document.body.classList.toggle("is-philosophy-visible", entry.isIntersecting);
+    },
+    { threshold: 0.35 }
+  );
+
+  philosophyObserver.observe(philosophySection);
+}
+
 staggerGroups.forEach((group) => {
   const items = group.querySelectorAll(".scroll-reveal, :scope > div");
 

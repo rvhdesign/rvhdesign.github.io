@@ -35,28 +35,23 @@ a {
 .kakao-chat {
   position: fixed;
   z-index: 100;
-  right: clamp(18px, 2.4vw, 38px);
-  bottom: clamp(86px, 7.5vw, 112px);
+  right: 50px;
+  bottom: 35px;
   display: flex;
   align-items: center;
-  gap: 9px;
-  min-height: 56px;
-  padding: 7px 18px 7px 8px;
-  border: 1px solid rgba(57, 31, 31, .08);
-  border-radius: 999px;
-  color: #3c1e1e;
-  background: #fee500;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
   box-shadow: 0 10px 28px rgba(0, 0, 0, .18);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -.03em;
-  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .kakao-chat:hover,
 .kakao-chat:focus-visible {
   transform: translateY(-3px);
-  background: #ffeb33;
   box-shadow: 0 14px 34px rgba(0, 0, 0, .24);
 }
 
@@ -66,44 +61,16 @@ a {
 }
 
 .kakao-chat__bubble {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  color: #fee500;
-  background: #3c1e1e;
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: -.04em;
-}
-
-.kakao-chat__bubble::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  bottom: 1px;
-  width: 9px;
-  height: 9px;
-  background: #3c1e1e;
-  transform: rotate(28deg);
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 @media (max-width: 600px) {
   .kakao-chat {
-    min-width: 54px;
-    min-height: 54px;
-    padding: 6px;
-  }
-
-  .kakao-chat__label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+    width: 54px;
+    height: 54px;
   }
 }
 
@@ -151,7 +118,8 @@ a {
 }
 
 .logo-face--back {
-  display: none;
+  transform: rotateY(180deg);
+  filter: brightness(0) invert(1);
 }
 
 .site-logo:hover .logo-spinner,
@@ -173,13 +141,13 @@ a {
 }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: 0;
   right: 0;
-  width: var(--right-ratio);
-  max-width: var(--right-ratio);
-  padding: 30px 2vw;
+  width: auto;
+  max-width: none;
+  padding: 35px 60px 0 0;
   overflow: visible;
 }
 
@@ -197,24 +165,33 @@ a {
 .main-nav a {
   position: relative;
   flex: 0 0 auto;
-  font-size: 15px;
+  color: rgba(0, 0, 0, .5);
+  font-size: 12px;
+  font-weight: 400;
   white-space: nowrap;
+  transition: color .2s ease, font-weight .2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: #000;
+  font-weight: 500;
+}
+
+.story-body .main-nav a,
+.box-menu-body .main-nav a {
+  color: rgba(217, 217, 217, .5);
+}
+
+.story-body .main-nav a:hover,
+.story-body .main-nav a:focus-visible,
+.box-menu-body .main-nav a:hover,
+.box-menu-body .main-nav a:focus-visible {
+  color: #d9d9d9;
 }
 
 .main-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 100%;
-  bottom: -5px;
-  height: 1px;
-  background: currentColor;
-  transition: right .25s ease;
-}
-
-.main-nav a:hover::after,
-.main-nav a:focus-visible::after {
-  right: 0;
+  display: none;
 }
 
 .hero-page {
@@ -225,64 +202,207 @@ a {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
   min-height: 100vh;
-  padding: 5.5rem 7vw 4rem;
-  background-image: url("images/about/hero-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  padding: 100px 7.5vw;
+  text-align: left;
+  background: url("images/about/hero-bg.png") center center / cover no-repeat;
 }
 
 .hero-scene::before {
   content: "";
   position: absolute;
+  z-index: 0;
   inset: 0;
-  background: rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .1);
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
-  max-width: 560px;
-  padding-left: 140px;
-  color: #141310;
-  text-shadow: none;
+  margin-top: 0;
 }
 
 .eyebrow {
-  margin: 0 0 26px;
-  font-size: 14px;
+  margin: 0 0 25px;
+  font-size: 12px;
+  font-weight: 400;
   letter-spacing: .12em;
   text-transform: uppercase;
-  text-shadow: none;
 }
 
 .hero-copy h1 {
   margin: 0 0 26px;
-  font-size: clamp(32px, 3.25vw, 52px);
-  line-height: 1.2;
+  color: #000;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.3;
   letter-spacing: -.06em;
-  font-weight: 500;
-  text-shadow: none;
+}
+
+.hero-subcopy:last-child {
+  margin-bottom: 0;
+}
+
+  .service-overview {
+    position: relative;
+    padding: 141px 0 30px;
+    background: var(--paper);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(70px, 11vw, 150px);
+    padding: 0 7.3vw 100px;
+  }
+
+  .service-card {
+    min-width: 0;
+  }
+
+  .service-card__label {
+    margin: 0 0 19px;
+    font-size: 12px;
+  }
+
+  .service-card h2 {
+    margin: 0 0 40px;
+    font-size: 30px;
+    line-height: 1.3;
+    letter-spacing: -.07em;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .service-card__description {
+    min-height: 58px;
+    margin: 0 0 27px;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: -.06em;
+    word-break: keep-all;
+  }
+
+  .service-card__image {
+    display: block;
+    width: 214px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    transition: transform .3s ease;
+  }
+
+  .service-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .8;
+    transition: opacity .3s ease;
+  }
+
+  .service-card__image:hover,
+  .service-card__image:focus-visible {
+    transform: scale(1.04);
+  }
+
+  .service-card__image:hover img,
+  .service-card__image:focus-visible img {
+    opacity: 1;
+  }
+
+  .service-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+    padding: 0 7.3vw;
+    color: #fff;
+    background: #b9b7b5;
+    font-size: 12px;
+  }
+
+  .service-cta span:first-child {
+    font-size: 20px;
+    letter-spacing: -.06em;
+  }
+
+  .service-cta span:last-child {
+    font-weight: 700;
 }
 
 .hero-subcopy {
   margin: 0;
-  color: rgba(20, 19, 16, .85);
-  font-size: clamp(16px, 1.6vw, 26px);
-  line-height: 1.75;
+  color: #000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.55;
   text-shadow: none;
+}
+
+.brand-philosophy {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 7vw 120px;
+  color: #fff;
+  text-align: center;
+  background: #1e1e1e;
+}
+
+.philosophy-copy {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.philosophy-copy h2 {
+  margin: 0 0 28px;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.philosophy-copy p {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -.06em;
+}
+
+.philosophy-copy p + p {
+  margin-top: 28px;
+}
+
+.brand-philosophy .section-label {
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+  left: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.home-body.is-philosophy-visible .main-nav a {
+  color: rgba(217, 217, 217, .5);
+}
+
+.home-body.is-philosophy-visible .main-nav a:hover,
+.home-body.is-philosophy-visible .main-nav a:focus-visible {
+  color: #d9d9d9;
+}
+
+.home-body .site-footer {
+  display: none;
 }
 
 @media (max-width: 900px) {
   .hero-scene {
-    padding-left: 5vw;
-    padding-right: 5vw;
-  }
-
-  .hero-copy {
-    max-width: 420px;
-    padding-left: 0;
+    padding-inline: 5vw;
   }
 }
 
@@ -290,6 +410,7 @@ a {
   .site-header {
     top: 18px;
     right: 20px;
+    padding: 0;
   }
 
   .site-logo {
@@ -302,16 +423,60 @@ a {
   }
 
   .main-nav a {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .hero-scene {
-    background-position: center center;
-    padding-top: 7rem;
+    min-height: 100svh;
+    padding: 110px 20px 100px;
   }
 
   .hero-copy h1 {
-    max-width: 300px;
+    font-size: 30px;
+  }
+
+  .hero-subcopy {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .section-label {
+    bottom: 54px;
+    font-size: 10px;
+  }
+
+  .service-overview {
+    padding: 95px 0 30px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 72px;
+    padding: 0 24px 80px;
+  }
+
+  .service-card h2 {
+    margin-bottom: 25px;
+    font-size: 30px;
+    white-space: normal;
+  }
+
+  .service-card__description {
+    min-height: 0;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .service-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    height: 60px;
+    padding: 0 24px;
+  }
+
+  .service-cta span:first-child {
+    font-size: 20px;
   }
 }
 
