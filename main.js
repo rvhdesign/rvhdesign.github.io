@@ -4,6 +4,7 @@ const staggerGroups = document.querySelectorAll(
 );
 
 const philosophySection = document.querySelector(".home-body .brand-philosophy");
+const manifestoSection = document.querySelector(".story-body .story-manifesto");
 
 if (philosophySection && "IntersectionObserver" in window) {
   const philosophyObserver = new IntersectionObserver(
@@ -14,6 +15,17 @@ if (philosophySection && "IntersectionObserver" in window) {
   );
 
   philosophyObserver.observe(philosophySection);
+}
+
+if (manifestoSection && "IntersectionObserver" in window) {
+  const manifestoObserver = new IntersectionObserver(
+    ([entry]) => {
+      document.body.classList.toggle("is-manifesto-visible", entry.isIntersecting);
+    },
+    { threshold: 0.35 }
+  );
+
+  manifestoObserver.observe(manifestoSection);
 }
 
 staggerGroups.forEach((group) => {
