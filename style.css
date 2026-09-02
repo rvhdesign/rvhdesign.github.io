@@ -226,10 +226,19 @@ a {
 
 .eyebrow {
   margin: 0 0 25px;
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 400;
-  letter-spacing: .12em;
+  letter-spacing: .25em;
   text-transform: uppercase;
+}
+
+.service-card__label,
+.box-menu-heading > p,
+.story-number,
+.form-section-heading > span {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: .25em;
 }
 
 .hero-copy h1 {
@@ -264,7 +273,9 @@ a {
 
   .service-card__label {
     margin: 0 0 19px;
-    font-size: 12px;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: .25em;
   }
 
   .service-card h2 {
@@ -279,6 +290,7 @@ a {
   .service-card__description {
     min-height: 58px;
     margin: 0 0 27px;
+    color: #555;
     font-size: 18px;
     line-height: 1.5;
     letter-spacing: -.06em;
@@ -535,8 +547,9 @@ a {
 
 .page p {
   max-width: 560px;
+  color: #555;
   font-size: 18px;
-  line-height: 1.55;
+  line-height: 1.5;
   letter-spacing: -.06em;
 }
 
@@ -563,9 +576,9 @@ a {
 
 .box-menu-heading > p {
   margin: 9px 0 0;
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 400;
-  letter-spacing: .12em;
+  letter-spacing: .25em;
 }
 
 .box-menu-heading h1 {
@@ -751,7 +764,7 @@ a {
   margin: 0 0 35px;
   color: #615c55;
   font-size: 18px;
-  line-height: 1.55;
+  line-height: 1.5;
   letter-spacing: -.06em;
   word-break: keep-all;
 }
@@ -1004,9 +1017,9 @@ a {
 .form-section-heading > span {
   padding-top: 5px;
   color: #8a8984;
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 400;
-  letter-spacing: .12em;
+  letter-spacing: .25em;
 }
 
 .form-section-heading h2 {
@@ -1302,9 +1315,9 @@ a {
 .story-kicker,
 .story-number {
   margin: 0;
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 400;
-  letter-spacing: .12em;
+  letter-spacing: .25em;
 }
 
 .story-hero {
@@ -1408,8 +1421,9 @@ a {
   padding: 8px 10px;
   background: rgba(255,255,255,0.7);
   color: #171717;
-  font-size: 9px;
-  letter-spacing: .2em;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .12em;
   backdrop-filter: blur(8px);
 }
 
@@ -1450,9 +1464,11 @@ a {
 
 .story-step__content h2 {
   margin: 8px 0 20px;
-  font-size: clamp(32px, 2.8vw, 58px);
-  line-height: 1.18;
-  white-space: nowrap;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -.06em;
+  word-break: keep-all;
   margin-left: 0;
 }
 
@@ -1463,7 +1479,8 @@ a {
 
 .story-step__content--brand .story-number {
   font-size: 9px;
-  letter-spacing: .22em;
+  font-weight: 400;
+  letter-spacing: .25em;
   margin-left: 0;
 }
 
@@ -1472,14 +1489,19 @@ a {
   max-width: 900px;
 }
 
+.story-step__content--brand .story-body-copy p {
+  line-height: 1.5;
+}
+
 .story-step__content .story-body-copy {
   max-width: 900px;
 }
 
 .story-step__content .story-body-copy p {
   margin: 0 0 8px;
-  font-size: clamp(12px, 1vw, 16px);
-  line-height: 1.8;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -.06em;
 }
 
 .story-step__content--cards {
@@ -1521,7 +1543,8 @@ a {
 .process-box span {
   color: #8a827b;
   font-size: 9px;
-  letter-spacing: .18em;
+  font-weight: 400;
+  letter-spacing: .25em;
 }
 
 .process-box strong {
@@ -1589,8 +1612,9 @@ a {
 }
 
 .story-origin .story-body-copy p {
-  font-size: clamp(11px, .9vw, 14px);
-  line-height: 1.85;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: -.06em;
 }
 
 .story-page figcaption {
@@ -1608,9 +1632,9 @@ a {
 .story-copy h2,
 .story-section-head h2 {
   margin: clamp(35px, 5vw, 70px) 0 45px;
-  font-size: clamp(38px, 5vw, 78px);
+  font-size: 30px;
   font-weight: 400;
-  line-height: 1.14;
+  line-height: 1.3;
   letter-spacing: -.06em;
   word-break: keep-all;
 }
@@ -1623,8 +1647,9 @@ a {
 .story-body-copy p {
   margin: 0 0 22px;
   color: #555;
-  font-size: clamp(12px, 1vw, 15px);
-  line-height: 1.9;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -.06em;
   word-break: keep-all;
 }
 
@@ -1844,7 +1869,8 @@ a {
   margin: 0 0 44px;
   color: #a58a6a;
   font-size: 9px;
-  letter-spacing: .22em;
+  font-weight: 400;
+  letter-spacing: .25em;
 }
 
 .experience-copy h2 {
@@ -2029,15 +2055,16 @@ a {
 
 .question-card p {
   margin: auto 0 28px;
-  font-size: clamp(20px, 2vw, 30px);
+  font-size: 30px;
   line-height: 1.45;
   letter-spacing: -.04em;
   word-break: keep-all;
 }
 
 .question-index {
-  font-size: 9px;
-  letter-spacing: .14em;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .12em;
 }
 
 .question-grid .question-card:nth-child(2) {
@@ -2058,6 +2085,138 @@ a {
   position: relative;
   min-height: 68vh;
   overflow: hidden;
+}
+
+.story-step--experience {
+  align-items: center;
+}
+
+.story-step--experience .story-step__content {
+  align-self: center;
+}
+
+.story-process-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  min-height: 100vh;
+  padding: 0;
+  background: #f7f3ee;
+}
+
+.story-process-gallery__fixed {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 0;
+}
+
+.story-process-gallery__fixed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-process-gallery__scroll {
+  min-height: 100vh;
+  padding: clamp(28px, 5vw, 80px);
+}
+
+.story-process-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.5vw, 24px);
+  align-content: center;
+  min-height: calc(100vh - clamp(56px, 10vw, 160px));
+}
+
+.story-process-gallery__item {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.story-process-gallery__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity .3s ease, transform .8s cubic-bezier(.16, 1, .3, 1);
+}
+
+.story-process-gallery__item:hover img,
+.story-process-gallery__item:focus-within img {
+  opacity: 1;
+  transform: scale(1.035);
+}
+
+.story-experience-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 180vh;
+  padding: 0;
+}
+
+.story-experience-layout__fixed {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 0;
+}
+
+.story-experience-layout__fixed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-experience-layout__scroll {
+  min-height: 180vh;
+  padding: 0 clamp(28px, 5vw, 80px) 100px;
+}
+
+.story-experience-layout__scroll .story-step__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0;
+  text-align: left;
+}
+
+.story-experience-layout__scroll .story-body-copy {
+  width: 100%;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.story-experience-layout .story-process-gallery__grid {
+  min-height: 0;
+  margin-top: 0;
+}
+
+.story-process-gallery__item {
+  position: relative;
+}
+
+.story-process-gallery__item .story-process-gallery__hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.story-process-gallery__item:hover .story-process-gallery__hover,
+.story-process-gallery__item:focus-within .story-process-gallery__hover {
+  opacity: 1;
+}
+
+.story-process-gallery__item:hover > img:first-child,
+.story-process-gallery__item:focus-within > img:first-child {
+  opacity: 0;
 }
 
 .story-manifesto {
@@ -2229,6 +2388,29 @@ a {
   object-position: 60% center;
 }
 
+@media (max-width: 760px) {
+  .story-process-gallery {
+    display: block;
+  }
+
+  .story-process-gallery__fixed {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 78vw;
+    min-height: 0;
+  }
+
+  .story-process-gallery__scroll {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .story-process-gallery__grid {
+    min-height: 0;
+  }
+}
+
 @media (max-width: 1100px) {
   .story-hero h1 {
     font-size: clamp(34px, 4.6vw, 54px);
@@ -2320,7 +2502,8 @@ a {
   .story-copy h2,
   .story-section-head h2 {
     margin: 34px 0 38px;
-    font-size: clamp(36px, 10vw, 50px);
+    font-size: 30px;
+    line-height: 1.3;
   }
 
   .story-body-copy {
@@ -2397,6 +2580,35 @@ a {
   .story-learning-media {
     width: 100%;
     min-height: 78vw;
+  }
+
+  .story-experience-layout {
+    display: block;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .story-experience-layout__fixed {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 78vw;
+    min-height: 0;
+  }
+
+  .story-experience-layout__scroll {
+    min-height: 0;
+    padding: 0 24px 70px;
+  }
+
+  .story-experience-layout__scroll .story-step__content {
+    min-height: 100vw;
+    padding: 70px 0;
+  }
+
+  .story-experience-layout .story-process-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .story-manifesto {
