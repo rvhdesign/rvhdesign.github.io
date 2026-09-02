@@ -56,3 +56,39 @@ if ("IntersectionObserver" in window) {
 
   revealItems.forEach((item) => revealObserver.observe(item));
 }
+
+const portfolioModal = document.querySelector(".portfolio-modal");
+const portfolioModalImage = document.querySelector(".portfolio-modal__image");
+const portfolioButtons = document.querySelectorAll("[data-portfolio-image]");
+let portfolioLastTrigger = null;
+
+const closePortfolioModal = () => {
+  if (!portfolioModal) return;
+
+  portfolioModal.hidden = true;
+  document.body.style.overflow = "";
+  portfolioModalImage.removeAttribute("src");
+  portfolioLastTrigger?.focus();
+};
+
+portfolioButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!portfolioModal || !portfolioModalImage) return;
+
+    portfolioLastTrigger = button;
+    portfolioModalImage.src = button.dataset.portfolioImage;
+    portfolioModalImage.alt = button.querySelector("img")?.alt || "포트폴리오 이미지";
+    portfolioModal.hidden = false;
+    document.body.style.overflow = "hidden";
+  });
+});
+
+portfolioModal?.addEventListener("click", (event) => {
+  if (event.target === portfolioModal) closePortfolioModal();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && portfolioModal && !portfolioModal.hidden) {
+    closePortfolioModal();
+  }
+});
