@@ -42,17 +42,62 @@ const stage = document.querySelector(".box-stage");
 const stageTitle = document.querySelector("#box-stage-title");
 const stageDescription = document.querySelector("#box-stage-description");
 const stageInquiry = document.querySelector("#box-stage-inquiry");
-const processSection = document.querySelector(".package-process");
+const processSections = document.querySelectorAll(".package-process");
+const processStepLinks = document.querySelectorAll(".package-process__steps a");
+let hoveredProcessLink = null;
 
-if (processSection && "IntersectionObserver" in window) {
-  const processObserver = new IntersectionObserver(
-    ([entry]) => {
-      document.body.classList.toggle("is-process-visible", entry.isIntersecting);
-    },
-    { threshold: 0.25 }
-  );
+const updateProcessStepState = (activeStep) => {
+  processStepLinks.forEach((link) => {
+    const isActive = link === hoveredProcessLink || (!hoveredProcessLink && link.querySelector("strong")?.textContent.toLowerCase() === activeStep);
+    link.classList.toggle("is-active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "step");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+};
 
-  processObserver.observe(processSection);
+if (processSections.length && processStepLinks.length) {
+  let processNavFrame = 0;
+
+  const updateProcessNavigation = () => {
+    processNavFrame = 0;
+    const navTop = processStepLinks[0].closest(".package-process__steps").getBoundingClientRect().top;
+    const activeSection = [...processSections].find((section) => {
+      const bounds = section.getBoundingClientRect();
+      const sectionTrigger = section.classList.contains("package-process--planning")
+        ? section.querySelector("h2").getBoundingClientRect().bottom
+        : bounds.top;
+      return sectionTrigger <= navTop && bounds.bottom > navTop;
+    });
+    const activeStep = activeSection?.dataset.processStep;
+
+    document.body.classList.toggle("is-process-visible", Boolean(activeSection));
+    document.body.classList.toggle("is-sales-visible", activeStep === "sales");
+    updateProcessStepState(activeStep);
+  };
+
+  const requestProcessNavigationUpdate = () => {
+    if (!processNavFrame) {
+      processNavFrame = window.requestAnimationFrame(updateProcessNavigation);
+    }
+  };
+
+  window.addEventListener("scroll", requestProcessNavigationUpdate, { passive: true });
+  window.addEventListener("resize", requestProcessNavigationUpdate);
+  updateProcessNavigation();
+
+  processStepLinks.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      hoveredProcessLink = link;
+      updateProcessStepState();
+    });
+    link.addEventListener("mouseleave", () => {
+      hoveredProcessLink = null;
+      updateProcessNavigation();
+    });
+  });
 }
 
 const selectBox = (boxKey) => {
