@@ -86,6 +86,7 @@ a {
   perspective: 220px;
   perspective-origin: 50% 42%;
   filter: none;
+  transition: transform .25s ease;
 }
 
 .logo-spinner {
@@ -122,11 +123,9 @@ a {
   filter: brightness(0) invert(1);
 }
 
-.site-logo:hover .logo-spinner,
-.site-logo:focus-visible .logo-spinner {
-  animation: none;
-  transform: scale(1.03);
-  transition-duration: .25s;
+.site-logo:hover,
+.site-logo:focus-visible {
+  transform: scale(1.1);
 }
 
 @keyframes logo-rotate-right {
@@ -1544,18 +1543,25 @@ a {
 }
 
 .contact-page {
+  display: grid;
+  grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(45px, 7vw, 110px);
+  height: 100vh;
+  overflow: hidden;
   padding: 135px clamp(24px, 7.3vw, 110px) 150px;
 }
 
 .contact-intro {
+  position: sticky;
+  top: 135px;
   max-width: 900px;
-  margin-bottom: clamp(45px, 6vw, 85px);
+  height: max-content;
 }
 
 .contact-guide {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 32px);
+  grid-template-columns: 1fr;
+  gap: 0;
   margin: 55px 0 0;
   padding: 0;
 }
@@ -1581,8 +1587,12 @@ a {
 }
 
 .contact-form {
+  height: calc(100vh - 135px);
+  overflow-y: auto;
   max-width: 900px;
+  padding-right: clamp(12px, 1.5vw, 24px);
   padding-top: 0;
+  scrollbar-color: #888 transparent;
 }
 
 .form-honeypot {
@@ -3519,6 +3529,8 @@ a {
 
   .contact-page {
     display: block;
+    height: auto;
+    overflow: visible;
     padding-top: 150px;
   }
 
@@ -3531,6 +3543,12 @@ a {
     grid-template-columns: 1fr;
     gap: 0;
     margin-top: 45px;
+  }
+
+  .contact-form {
+    height: auto;
+    overflow: visible;
+    padding-right: 0;
   }
 
   .form-row--two {
