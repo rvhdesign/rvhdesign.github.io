@@ -9,9 +9,10 @@
   <meta name="description" content="REVIVE HOUSE 프로젝트 문의">
   <meta name="rvh-asset-version" content="20260816-1">
   <title>문의하기 — REVIVE HOUSE</title>
-  <link rel="stylesheet" href="style.css?v=20260904-1">
+  <link rel="stylesheet" href="style.css?v=20260904-12">
   <script src="asset-version.js?v=20260816-1" defer></script>
-  <script src="contact.js?v=20260816-1" defer></script>
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="contact.js?v=20260904-7" defer></script>
 </head>
 <body>
   <a class="site-logo" href="index.html" aria-label="REVIVE HOUSE 메인으로 이동">
@@ -32,20 +33,29 @@
     </nav>
   </header>
 
-  <main class="page contact-page">
+  <main class="page contact-page" id="contact-start">
     <div class="contact-intro">
       <p class="eyebrow">PROJECT INQUIRY</p>
       <h1>문의하기</h1>
-      <p>프로젝트에 대해 아는 만큼만 편하게 작성해 주세요. 내용을 검토한 뒤 영업일 기준 1–2일 이내에 연락드리겠습니다.</p>
+      <p>프로젝트에 대해 아는 만큼만 편하게 작성해 주세요.<br>내용을 검토한 뒤 영업일 기준 1–2일 이내에 연락드리겠습니다.</p>
 
       <dl class="contact-guide">
-        <div><dt>01</dt><dd>고객 정보</dd></div>
-        <div><dt>02</dt><dd>제작 내용</dd></div>
-        <div><dt>03</dt><dd>추가 정보</dd></div>
+        <div><a href="#contact-start"><dt>01</dt><dd>고객 정보</dd></a></div>
+        <div><a href="#project-name-field"><dt>02</dt><dd>제작 내용</dd></a></div>
+        <div><a href="#reference-file-field"><dt>03</dt><dd>추가 정보</dd></a></div>
       </dl>
     </div>
 
-    <form class="contact-form" action="https://formsubmit.co/rvhdesign@naver.com" method="post" enctype="multipart/form-data">
+    <div class="contact-form-column">
+      <div class="contact-form-title" aria-live="polite">
+        <span class="contact-form-title__number">01</span>
+        <div>
+          <h2>고객 정보</h2>
+          <p><span class="required">*</span> 표시는 필수 입력 항목입니다.</p>
+        </div>
+      </div>
+
+    <form class="contact-form" action="https://formsubmit.co/rvhdesign@naver.com" method="post" enctype="multipart/form-data" novalidate>
       <input type="hidden" name="_subject" value="[REVIVE HOUSE] 새로운 프로젝트 문의">
       <input type="hidden" name="_next" value="https://rvhdesign.github.io/contact.html?sent=1">
       <input type="hidden" name="_template" value="table">
@@ -55,7 +65,14 @@
         문의가 접수되었습니다. 내용을 확인한 뒤 연락드리겠습니다.
       </p>
 
-      <section class="form-section" aria-labelledby="basic-info-title">
+      <div class="contact-modal" hidden role="alertdialog" aria-modal="true" aria-labelledby="contact-modal-title">
+        <div class="contact-modal__box">
+          <p id="contact-modal-title">문의가 접수되었습니다.<br>내용을 확인한 후 빠른 시일 내에 연락드리겠습니다.</p>
+          <button class="contact-modal__close" type="button">확인</button>
+        </div>
+      </div>
+
+      <section class="form-section" data-step="0" data-title="고객 정보" data-description="* 표시는 필수 입력 항목입니다." aria-labelledby="basic-info-title">
         <div class="form-section-heading">
           <span>01</span>
           <div>
@@ -66,40 +83,41 @@
 
         <div class="form-row form-row--two">
           <div class="form-field">
-            <label for="company">업체명 <span class="required" aria-label="필수">*</span></label>
-            <input id="company" name="업체명" type="text" autocomplete="organization" required>
+            <label for="name">이름 <span class="required" aria-label="필수">*</span></label>
+            <input id="name" name="이름" type="text" autocomplete="name" required>
           </div>
           <div class="form-field">
-            <label for="manager">담당자명 <span class="required" aria-label="필수">*</span></label>
-            <input id="manager" name="담당자명" type="text" autocomplete="name" required>
+            <label for="company">회사명 <span class="required" aria-label="필수">*</span></label>
+            <input id="company" name="회사명" type="text" autocomplete="organization" required>
           </div>
         </div>
 
         <div class="form-row form-row--two">
           <fieldset class="form-field">
-            <legend>담당자 연락처 <span class="required" aria-label="필수">*</span></legend>
+            <legend>전화번호 <span class="required" aria-label="필수">*</span></legend>
             <div class="phone-fields">
-              <input name="연락처_앞자리" type="tel" inputmode="numeric" autocomplete="tel-area-code" maxlength="3" aria-label="연락처 앞자리" required>
-              <span aria-hidden="true">—</span>
-              <input name="연락처_가운데자리" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 가운데 자리" required>
-              <span aria-hidden="true">—</span>
-              <input name="연락처_뒷자리" type="tel" inputmode="numeric" maxlength="4" aria-label="연락처 뒷자리" required>
+              <input id="phone" name="전화번호" type="tel" inputmode="numeric" autocomplete="tel" maxlength="13" aria-label="전화번호" required>
             </div>
           </fieldset>
           <div class="form-field">
-            <label for="email">담당자 이메일 <span class="required" aria-label="필수">*</span></label>
+            <label for="email">이메일 <span class="required" aria-label="필수">*</span></label>
             <input id="email" name="email" type="email" autocomplete="email" required>
           </div>
         </div>
       </section>
 
-      <section class="form-section" aria-labelledby="spec-title">
+      <section class="form-section" data-step="1" data-title="제작 내용" data-description="정확하지 않아도 예상 범위로 작성해 주세요." aria-labelledby="spec-title">
         <div class="form-section-heading">
           <span>02</span>
           <div>
             <h2 id="spec-title">제작 내용</h2>
             <p>정확하지 않아도 예상 범위로 작성해 주세요.</p>
           </div>
+        </div>
+
+        <div class="form-field form-field--step-start" id="project-name-field">
+          <label for="project-name">프로젝트 이름 <span class="required" aria-label="필수">*</span></label>
+          <input id="project-name" name="프로젝트_이름" type="text" required>
         </div>
 
         <div class="form-field">
@@ -113,24 +131,38 @@
             <input id="package-size" name="제작_사이즈" type="text" placeholder="예: 가로 120 × 세로 180 × 높이 60mm">
           </div>
           <div class="form-field">
-            <label for="quantity">예상 제작 수량 <span class="required" aria-label="필수">*</span></label>
+            <label for="quantity">제작 수량 <span class="required" aria-label="필수">*</span></label>
             <input id="quantity" name="예상_제작수량" type="text" inputmode="numeric" placeholder="예: 1,000개" required>
           </div>
         </div>
 
         <div class="form-field">
-          <label for="budget">예상 예산 <span class="required" aria-label="필수">*</span></label>
-          <input id="budget" name="예상_예산" type="text" placeholder="예: 디자인 및 제작 포함 500만원 내외" required>
+          <label for="budget">예산 <span class="required" aria-label="필수">*</span></label>
+          <input id="budget" name="예산" type="text" placeholder="예: 디자인 및 제작 포함 500만원 내외" required>
+        </div>
+
+        <div class="form-row form-row--two">
+          <div class="form-field">
+            <label for="deadline">받을 날짜 <span class="required" aria-label="필수">*</span></label>
+            <input id="deadline" name="받을_날짜" type="date" required>
+          </div>
+          <div class="form-field">
+            <label for="delivery-area">받을 주소 <span class="required" aria-label="필수">*</span></label>
+            <div class="address-field">
+              <input id="delivery-area" name="받을_주소" type="text" readonly required>
+              <button class="address-search-button" type="button">주소 검색</button>
+            </div>
+          </div>
         </div>
 
         <fieldset class="form-field option-field">
           <legend>제품 형태를 선택해 주세요 <span class="required" aria-label="필수">*</span></legend>
           <div class="option-grid">
-            <label><input type="checkbox" name="제품형태[]" value="단상자형"><span>단상자형</span></label>
-            <label><input type="checkbox" name="제품형태[]" value="슬리브형"><span>슬리브형</span></label>
-            <label><input type="checkbox" name="제품형태[]" value="Y형 상하 조립형"><span>Y형 상하 조립형</span></label>
-            <label><input type="checkbox" name="제품형태[]" value="G형 상하뚜껑형"><span>G형 상하뚜껑형</span></label>
-            <label><input type="checkbox" name="제품형태[]" value="커스텀형"><span>커스텀형</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="단상자"><span>단상자</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="슬리브 박스"><span>슬리브 박스</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="싸바리 | Y형 박스"><span>싸바리 | Y형 박스</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="표지바리 | G형 박스"><span>표지바리 | G형 박스</span></label>
+            <label><input type="checkbox" name="제품형태[]" value="커스텀 박스"><span>커스텀 박스</span></label>
           </div>
           <label class="other-option">
             <input type="checkbox" name="제품형태[]" value="기타">
@@ -140,7 +172,7 @@
         </fieldset>
       </section>
 
-      <section class="form-section" aria-labelledby="schedule-title">
+      <section class="form-section" data-step="2" data-title="추가 정보" data-description="보유한 자료가 있다면 함께 보내주세요." aria-labelledby="schedule-title">
         <div class="form-section-heading">
           <span>03</span>
           <div>
@@ -150,16 +182,15 @@
         </div>
 
         <div class="form-row form-row--two">
-          <div class="form-field">
-            <label for="reference-file">기획 및 레퍼런스 파일</label>
+          <div class="form-field form-field--step-start" id="reference-file-field">
+            <label for="reference-file">기획 및 참고 자료</label>
             <label class="file-upload" for="reference-file">
               <span>파일 선택</span>
               <small>PDF, JPG, PNG, ZIP · 최대 10MB</small>
             </label>
             <input class="native-file-input" id="reference-file" name="기획_레퍼런스_파일" type="file" accept=".pdf,.jpg,.jpeg,.png,.zip">
           </div>
-          <div class="form-field">
-            <label for="production-file">제작에 필요한 기타 파일</label>
+          <div class="form-field form-field--file-secondary">
             <label class="file-upload" for="production-file">
               <span>파일 선택</span>
               <small>AI, PDF, JPG, PNG, ZIP · 최대 10MB</small>
@@ -168,35 +199,24 @@
           </div>
         </div>
 
-        <div class="form-row form-row--two">
-          <div class="form-field">
-            <label for="deadline">예상 납기 일정 <span class="required" aria-label="필수">*</span></label>
-            <input id="deadline" name="예상_납기일" type="date" required>
-          </div>
-          <div class="form-field">
-            <label for="delivery-area">납품 받을 지역</label>
-            <input id="delivery-area" name="납품_지역" type="text" placeholder="예: 부산광역시">
-          </div>
-        </div>
-
         <div class="form-field">
-          <label for="details">프로젝트에 대해 자세히 알려주세요 <span class="required" aria-label="필수">*</span></label>
+          <label for="details">프로젝트에 대해 자세히 알려주세요. <span class="required" aria-label="필수">*</span></label>
           <textarea id="details" name="상세_문의내용" rows="8" placeholder="브랜드 소개, 원하는 분위기, 필요한 작업 범위와 참고사항 등을 자유롭게 작성해 주세요." required></textarea>
         </div>
 
         <fieldset class="form-field option-field">
           <legend>어떤 경로로 알게 되셨나요? <span class="required" aria-label="필수">*</span></legend>
           <div class="option-grid option-grid--radio">
-            <label><input type="radio" name="유입경로" value="네이버 검색" required><span>네이버 검색</span></label>
-            <label><input type="radio" name="유입경로" value="네이버 검색광고"><span>네이버 검색광고</span></label>
-            <label><input type="radio" name="유입경로" value="기타 광고"><span>기타 광고</span></label>
-            <label><input type="radio" name="유입경로" value="인스타그램"><span>인스타그램</span></label>
-            <label><input type="radio" name="유입경로" value="유튜브"><span>유튜브</span></label>
-            <label><input type="radio" name="유입경로" value="핀터레스트"><span>핀터레스트</span></label>
-            <label><input type="radio" name="유입경로" value="지인소개"><span>지인 소개</span></label>
+            <label><input type="checkbox" name="유입경로[]" value="네이버 검색"><span>네이버 검색</span></label>
+            <label><input type="checkbox" name="유입경로[]" value="네이버 검색 광고"><span>네이버 검색 광고</span></label>
+            <label><input type="checkbox" name="유입경로[]" value="기타 광고"><span>기타 광고</span></label>
+            <label><input type="checkbox" name="유입경로[]" value="인스타그램"><span>인스타그램</span></label>
+            <label><input type="checkbox" name="유입경로[]" value="유튜브"><span>유튜브</span></label>
+            <label><input type="checkbox" name="유입경로[]" value="핀터레스트"><span>핀터레스트</span></label>
+            <label><input type="checkbox" name="유입경로[]" value="지인소개"><span>지인 소개</span></label>
           </div>
           <label class="other-option">
-            <input type="radio" name="유입경로" value="기타">
+            <input type="checkbox" name="유입경로[]" value="기타">
             <span>기타</span>
             <input name="유입경로_기타설명" type="text" aria-label="기타 유입 경로" placeholder="직접 입력">
           </label>
@@ -227,6 +247,7 @@
         <span aria-hidden="true">→</span>
       </button>
     </form>
+    </div>
   </main>
 
   <a class="kakao-chat" href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 견적문의"><img class="kakao-chat__bubble" src="images/about/카카오톡.png" alt="카카오톡"></a>
