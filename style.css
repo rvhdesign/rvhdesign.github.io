@@ -3526,7 +3526,7 @@ a {
     display: block;
     height: auto;
     overflow: visible;
-    padding-top: 150px;
+    padding: 120px 24px 70px;
   }
 
   .contact-intro {
