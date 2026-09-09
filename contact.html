@@ -57,7 +57,6 @@
 
     <form class="contact-form" action="https://formsubmit.co/rvhdesign@naver.com" method="post" enctype="multipart/form-data" novalidate>
       <input type="hidden" name="_subject" value="[REVIVE HOUSE] 새로운 프로젝트 문의">
-      <input type="hidden" name="_next" value="https://rvhdesign.github.io/contact.html?sent=1">
       <input type="hidden" name="_template" value="table">
       <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
 
@@ -152,6 +151,8 @@
               <input id="delivery-area" name="받을_주소" type="text" readonly required>
               <button class="address-search-button" type="button">주소 검색</button>
             </div>
+            <label class="address-detail-label" for="delivery-detail">상세주소</label>
+            <input id="delivery-detail" name="상세주소" type="text" autocomplete="street-address" placeholder="동, 층, 호수 등">
           </div>
         </div>
 

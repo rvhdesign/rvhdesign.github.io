@@ -1,5 +1,3 @@
-const contactParams = new URLSearchParams(window.location.search);
-const successMessage = document.querySelector(".form-success");
 const contactForm = document.querySelector(".contact-form");
 const packageTypeInputs = document.querySelectorAll('input[name="제품형태[]"]');
 const discoveryInputs = document.querySelectorAll('input[name="유입경로[]"]');
@@ -15,17 +13,15 @@ const fixedFormTitleDescription = document.querySelector(".contact-form-title p"
 const contactModal = document.querySelector(".contact-modal");
 const contactModalClose = document.querySelector(".contact-modal__close");
 const addressInput = document.querySelector("#delivery-area");
+const addressDetailInput = document.querySelector("#delivery-detail");
 const addressSearchButton = document.querySelector(".address-search-button");
+const submitButton = contactForm?.querySelector(".submit-button");
 let activeTitleStep = -1;
 
 window.addEventListener("scroll", () => {
   document.querySelector(".contact-page")?.classList.toggle("is-scrolled", window.scrollY > 0);
 }, { passive: true });
 document.querySelector(".contact-page")?.classList.toggle("is-scrolled", window.scrollY > 0);
-
-if (contactParams.get("sent") === "1" && successMessage) {
-  successMessage.classList.add("is-visible");
-}
 
 const updateActiveGuide = () => {
   if (!guideItems.length || !formSections.length) return;
@@ -75,6 +71,7 @@ addressSearchButton?.addEventListener("click", () => {
     oncomplete: (data) => {
       addressInput.value = data.roadAddress || data.jibunAddress;
       addressInput.dispatchEvent(new Event("input", { bubbles: true }));
+      addressDetailInput?.focus();
     },
   }).open();
 });
@@ -206,7 +203,25 @@ contactForm?.addEventListener("submit", (event) => {
     return;
   }
 
-  contactModal.hidden = false;
+  if (!submitButton) return;
+
+  submitButton.disabled = true;
+
+  fetch(contactForm.action, {
+    method: contactForm.method || "POST",
+    body: new FormData(contactForm),
+    headers: { Accept: "application/json" },
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error("문의 전송에 실패했습니다.");
+      contactModal.hidden = false;
+    })
+    .catch(() => {
+      window.alert("문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+    });
 });
 
 contactForm?.querySelectorAll("[required]").forEach((input) => {
@@ -217,5 +232,5 @@ contactForm?.querySelectorAll("[required]").forEach((input) => {
 
 contactModalClose?.addEventListener("click", () => {
   contactModal.hidden = true;
-  contactForm?.submit();
+  window.location.href = "contact.html";
 });

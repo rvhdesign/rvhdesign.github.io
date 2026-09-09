@@ -212,8 +212,14 @@ a {
   min-height: 100vh;
 }
 
-.hero-scene {
+.home-intro-stage {
   position: relative;
+}
+
+.hero-scene {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -378,24 +384,51 @@ a {
   text-shadow: none;
 }
 
+.brand-philosophy-track {
+  height: 180vh;
+  margin-top: -25vh;
+}
+
 .brand-philosophy {
-  position: relative;
-  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 2;
+
   padding: 120px 7vw 120px;
   color: #fff;
   text-align: center;
-  background: #1e1e1e;
+  background: rgb(30 30 30 / var(--philosophy-opacity, 0));
 }
 
 .philosophy-copy {
+  position: absolute;
+  top: 50%;
+  right: 7vw;
+  left: 7vw;
+  transform: translateY(-50%);
   margin: 0 auto;
   max-width: 1200px;
+}
+
+.brand-philosophy .philosophy-line {
+  display: block;
+}
+
+.brand-philosophy.is-scroll-reveal-ready .philosophy-block {
+  opacity: 0;
+  transition: opacity .7s ease;
+}
+
+.brand-philosophy.is-scroll-reveal-ready .philosophy-block.is-visible {
+  opacity: 1;
 }
 
 .philosophy-copy h2 {
   margin: 0 0 28px;
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1;
   letter-spacing: -.06em;
 }
@@ -403,13 +436,13 @@ a {
 .philosophy-copy p {
   margin: 0;
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   letter-spacing: -.06em;
 }
 
 .philosophy-copy p + p {
-  margin-top: 28px;
+  margin-top: 36px;
 }
 
 .brand-philosophy .section-label {
@@ -421,6 +454,7 @@ a {
   color: #fff;
   font-size: 12px;
   font-weight: 400;
+  opacity: var(--philosophy-opacity, 0);
   text-align: center;
 }
 
@@ -1917,6 +1951,14 @@ a {
 .address-field input {
   min-width: 0;
   flex: 1;
+}
+
+.address-detail-label {
+  margin-top: 16px !important;
+}
+
+.address-field + .address-detail-label + input {
+  display: block;
 }
 
 .address-search-button {

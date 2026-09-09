@@ -4,7 +4,51 @@ const staggerGroups = document.querySelectorAll(
 );
 
 const philosophySection = document.querySelector(".home-body .brand-philosophy");
+const philosophyTrack = document.querySelector(".home-body .brand-philosophy-track");
+const philosophyBlocks = document.querySelectorAll(".home-body .philosophy-block");
 const manifestoSection = document.querySelector(".story-body .story-manifesto");
+
+if (philosophySection && philosophyTrack && philosophyBlocks.length) {
+  philosophySection.classList.add("is-scroll-reveal-ready");
+
+  let philosophyFrame = null;
+
+  const updatePhilosophyLines = () => {
+    philosophyFrame = null;
+
+    const sectionStart = philosophyTrack.getBoundingClientRect().top + window.scrollY;
+    const scrollDistance = Math.max(philosophyTrack.offsetHeight - window.innerHeight, 1);
+    const progress = Math.max(
+      (window.scrollY - sectionStart) / scrollDistance,
+      0
+    );
+    const transitionProgress = Math.min(progress / 0.4, 1);
+    philosophySection.style.setProperty(
+      "--philosophy-opacity",
+      transitionProgress.toFixed(3)
+    );
+    const visibleBlockCount = progress < 0.4
+      ? 0
+      : progress < 0.72
+        ? 1
+        : progress < 0.94
+          ? 2
+          : philosophyBlocks.length;
+
+    philosophyBlocks.forEach((block, index) => {
+      block.classList.toggle("is-visible", index < visibleBlockCount);
+    });
+  };
+
+  const requestPhilosophyUpdate = () => {
+    if (philosophyFrame !== null) return;
+    philosophyFrame = window.requestAnimationFrame(updatePhilosophyLines);
+  };
+
+  updatePhilosophyLines();
+  window.addEventListener("scroll", requestPhilosophyUpdate, { passive: true });
+  window.addEventListener("resize", requestPhilosophyUpdate);
+}
 
 if (philosophySection && "IntersectionObserver" in window) {
   const philosophyObserver = new IntersectionObserver(
