@@ -3168,6 +3168,113 @@ a {
   letter-spacing: .08em;
 }
 
+.story-designers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(130px, 14vw, 200px) clamp(28px, 7vw, 120px) clamp(90px, 9vw, 140px);
+  background: #f7f3ee;
+}
+
+.story-designers__heading {
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
+.story-designers__heading p {
+  margin: 0;
+  color: #8a827b;
+  font-size: 8px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+}
+
+.story-designers__heading h2 {
+  margin: 10px 0 0;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -.06em;
+  word-break: keep-all;
+}
+
+.story-designers__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  align-items: stretch;
+  gap: clamp(24px, 3vw, 48px);
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.designer-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  height: 100%;
+  min-height: clamp(380px, 40vw, 480px);
+  padding: clamp(36px, 4vw, 56px) clamp(28px, 3vw, 44px);
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .4s ease;
+}
+
+.designer-card:hover,
+.designer-card:focus-visible {
+  transform: scale(1.045);
+  box-shadow: 0 24px 48px rgba(21, 17, 12, 0.14);
+}
+
+.designer-card__icon {
+  grid-row: 3;
+  align-self: start;
+  justify-self: center;
+  width: clamp(88px, 8.5vw, 124px);
+  height: clamp(88px, 8.5vw, 124px);
+  margin-top: 22px;
+  fill: none;
+  stroke: #171717;
+  stroke-width: 1;
+  opacity: .08;
+}
+
+.designer-card__name {
+  grid-row: 1;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -.04em;
+}
+
+.designer-card__email {
+  grid-row: 2;
+  margin: 6px 0 0;
+  color: #8a827b;
+  font-size: 11px;
+  letter-spacing: .02em;
+}
+
+.designer-card__history {
+  grid-row: 5;
+  /* fixed grid row keeps the last line on the same axis across cards */
+  margin: 0;
+  padding-top: 20px;
+  list-style: none;
+}
+
+.designer-card__history li {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: -.02em;
+  word-break: keep-all;
+}
+
+.designer-card__history li:last-child {
+  margin-bottom: 0;
+}
+
 .story-location {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3545,6 +3652,16 @@ a {
   .story-location {
     display: block;
     padding: 105px 24px;
+  }
+
+  .story-designers {
+    min-height: 0;
+    padding: 105px 24px;
+  }
+
+  .story-designers__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .story-location-info {

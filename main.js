@@ -136,3 +136,33 @@ document.addEventListener("keydown", (event) => {
     closePortfolioModal();
   }
 });
+
+const designerCards = document.querySelectorAll(".designer-card[data-email]");
+
+const copyDesignerEmail = (email) => {
+  if (!window.confirm("연락처를 복사하시겠습니까?")) return;
+
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(email);
+    return;
+  }
+
+  const tempInput = document.createElement("textarea");
+  tempInput.value = email;
+  tempInput.style.position = "fixed";
+  tempInput.style.opacity = "0";
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+};
+
+designerCards.forEach((card) => {
+  card.addEventListener("click", () => copyDesignerEmail(card.dataset.email));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      copyDesignerEmail(card.dataset.email);
+    }
+  });
+});
