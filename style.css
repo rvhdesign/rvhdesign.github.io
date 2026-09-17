@@ -3210,33 +3210,27 @@ a {
 .designer-card {
   position: relative;
   display: grid;
-  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-rows: auto auto auto 1fr;
   height: 100%;
   min-height: clamp(380px, 40vw, 480px);
   padding: clamp(36px, 4vw, 56px) clamp(28px, 3vw, 44px);
   overflow: hidden;
   background: #fff;
-  cursor: pointer;
-  transition: transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .4s ease;
-}
-
-.designer-card:hover,
-.designer-card:focus-visible {
-  transform: scale(1.045);
-  box-shadow: 0 24px 48px rgba(21, 17, 12, 0.14);
+  padding-bottom: clamp(16px, 2vw, 28px);
 }
 
 .designer-card__icon {
-  grid-row: 3;
-  align-self: start;
-  justify-self: center;
-  width: clamp(88px, 8.5vw, 124px);
-  height: clamp(88px, 8.5vw, 124px);
-  margin-top: 22px;
-  fill: none;
-  stroke: #171717;
-  stroke-width: 1;
-  opacity: .08;
+  position: absolute;
+  top: clamp(16px, 2vw, 24px);
+  right: clamp(16px, 2vw, 24px);
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.designer-card__icon[src*="예은"] {
+  width: 18px;
+  height: 18px;
 }
 
 .designer-card__name {
@@ -3247,32 +3241,153 @@ a {
   letter-spacing: -.04em;
 }
 
-.designer-card__email {
+.designer-card__skill {
   grid-row: 2;
-  margin: 6px 0 0;
-  color: #8a827b;
-  font-size: 11px;
-  letter-spacing: .02em;
+  width: 56px;
+  height: 16px;
+  margin-top: 14px;
+  object-fit: fill;
+}
+
+.designer-card__summary {
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: -.03em;
+  word-break: keep-all;
+}
+
+.designer-card__summary strong {
+  font-weight: 600;
 }
 
 .designer-card__history {
-  grid-row: 5;
+  grid-row: 4;
   /* fixed grid row keeps the last line on the same axis across cards */
   margin: 0;
-  padding-top: 20px;
+  padding-top: 24px;
   list-style: none;
 }
 
 .designer-card__history li {
+  position: relative;
   margin: 0 0 8px;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.3;
   letter-spacing: -.02em;
   word-break: keep-all;
 }
 
+.designer-card__history li::before {
+  display: inline-block;
+  margin-right: 5px;
+  content: "-";
+}
+
 .designer-card__history li:last-child {
   margin-bottom: 0;
+}
+
+.designer-card--seoeun .designer-card__skill {
+  width: 200px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.designer-card--seoeun .designer-card__icon {
+  top: 2px;
+  right: 2px;
+  width: 224px;
+  height: 224px;
+}
+
+.designer-card--seoeun {
+  grid-template-rows: auto auto 1fr auto;
+  padding-top: 32px;
+}
+
+.designer-card--seoeun .designer-card__summary {
+  align-self: end;
+  margin-bottom: 0;
+}
+
+.designer-card--seoeun .designer-card__summary span + strong {
+  margin-top: 12px;
+}
+
+.designer-card--seoeun .designer-card__summary strong:last-child {
+  margin-bottom: 24px;
+}
+
+.designer-card--seoeun .designer-card__history {
+  align-self: end;
+  padding-left: 12px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.designer-card--seoeun .designer-card__history li::before {
+  position: absolute;
+  left: -12px;
+  display: block;
+  width: 8px;
+  text-align: center;
+  font-size: 16px;
+  content: "·";
+}
+
+.designer-card--yeeun {
+  grid-template-rows: auto auto 1fr auto;
+  padding-top: 32px;
+}
+
+.designer-card--yeeun .designer-card__skill {
+  width: 288px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.designer-card--yeeun .designer-card__icon {
+  top: 2px;
+  right: 2px;
+  width: 216px;
+  height: 216px;
+}
+
+.designer-card--yeeun .designer-card__summary {
+  align-self: end;
+  margin-bottom: 0;
+}
+
+.designer-card--yeeun .designer-card__summary span + strong {
+  margin-top: 12px;
+}
+
+.designer-card--yeeun .designer-card__summary strong:last-child {
+  margin-bottom: 24px;
+}
+
+.designer-card--yeeun .designer-card__history {
+  align-self: end;
+  padding-left: 12px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.designer-card--yeeun .designer-card__history li::before {
+  position: absolute;
+  left: -12px;
+  display: block;
+  width: 8px;
+  text-align: center;
+  font-size: 16px;
+  content: "·";
 }
 
 .story-location {
