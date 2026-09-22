@@ -73,7 +73,20 @@ if (processSections.length && processStepLinks.length) {
     });
     const activeStep = activeSection?.dataset.processStep;
 
+    const productionCopy = document.querySelector(".package-process--production .package-process__research");
+    const processSteps = document.querySelector(".package-process__steps");
+    if (productionCopy && processSteps && activeStep === "production") {
+      const overlap = Math.max(
+        0,
+        processSteps.getBoundingClientRect().bottom + 24 - productionCopy.getBoundingClientRect().top
+      );
+      productionCopy.style.setProperty("--production-copy-opacity", String(Math.max(0, 1 - overlap / 90)));
+    } else if (productionCopy) {
+      productionCopy.style.removeProperty("--production-copy-opacity");
+    }
+
     document.body.classList.toggle("is-process-visible", Boolean(activeSection));
+    document.body.classList.toggle("is-production-visible", activeStep === "production");
     document.body.classList.toggle("is-sales-visible", activeStep === "sales");
     updateProcessStepState(activeStep);
   };

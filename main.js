@@ -5,6 +5,8 @@ const staggerGroups = document.querySelectorAll(
 
 const philosophySection = document.querySelector(".home-body .brand-philosophy");
 const philosophyTrack = document.querySelector(".home-body .brand-philosophy-track");
+const heroScene = document.querySelector(".home-body .hero-scene");
+const thirdPage = document.querySelector(".home-body .service-overview");
 const philosophyBlocks = document.querySelectorAll(".home-body .philosophy-block");
 const manifestoSection = document.querySelector(".story-body .story-manifesto");
 
@@ -22,22 +24,29 @@ if (philosophySection && philosophyTrack && philosophyBlocks.length) {
       (window.scrollY - sectionStart) / scrollDistance,
       0
     );
-    const transitionProgress = Math.min(progress / 0.4, 1);
+    const transitionProgress = Math.min(progress / 0.25, 1);
     philosophySection.style.setProperty(
       "--philosophy-opacity",
       transitionProgress.toFixed(3)
     );
-    const visibleBlockCount = progress < 0.4
+    heroScene?.style.setProperty("--hero-fade-opacity", transitionProgress.toFixed(3));
+    const visibleBlockCount = progress < 0.3
       ? 0
-      : progress < 0.72
+      : progress < 0.55
         ? 1
-        : progress < 0.94
+        : progress < 0.8
           ? 2
           : philosophyBlocks.length;
 
     philosophyBlocks.forEach((block, index) => {
       block.classList.toggle("is-visible", index < visibleBlockCount);
     });
+
+    const thirdPageVisible = thirdPage
+      ? thirdPage.getBoundingClientRect().top <= 0 && thirdPage.getBoundingClientRect().bottom >= window.innerHeight
+      : false;
+    document.body.classList.toggle("is-third-page-visible", thirdPageVisible);
+    document.body.classList.toggle("is-philosophy-dark", progress >= 0.25 && !thirdPageVisible);
   };
 
   const requestPhilosophyUpdate = () => {
@@ -48,17 +57,6 @@ if (philosophySection && philosophyTrack && philosophyBlocks.length) {
   updatePhilosophyLines();
   window.addEventListener("scroll", requestPhilosophyUpdate, { passive: true });
   window.addEventListener("resize", requestPhilosophyUpdate);
-}
-
-if (philosophySection && "IntersectionObserver" in window) {
-  const philosophyObserver = new IntersectionObserver(
-    ([entry]) => {
-      document.body.classList.toggle("is-philosophy-visible", entry.isIntersecting);
-    },
-    { threshold: 0.35 }
-  );
-
-  philosophyObserver.observe(philosophySection);
 }
 
 if (manifestoSection && "IntersectionObserver" in window) {
