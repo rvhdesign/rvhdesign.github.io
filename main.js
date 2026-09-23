@@ -9,6 +9,42 @@ const heroScene = document.querySelector(".home-body .hero-scene");
 const thirdPage = document.querySelector(".home-body .service-overview");
 const philosophyBlocks = document.querySelectorAll(".home-body .philosophy-block");
 const manifestoSection = document.querySelector(".story-body .story-manifesto");
+const designerFlow = document.querySelector(".story-designers-flow");
+const designerSections = designerFlow?.querySelectorAll(".story-designers-stage > .story-designers");
+
+if (designerFlow && designerSections?.length) {
+  let designerFrame = null;
+
+  const updateDesignerCards = () => {
+    designerFrame = null;
+    const flowStart = designerFlow.getBoundingClientRect().top + window.scrollY;
+    const flowDistance = Math.max(designerFlow.offsetHeight - window.innerHeight, 1);
+    const progress = Math.min(Math.max((window.scrollY - flowStart) / flowDistance, 0), 1);
+    const firstTransition = Math.min(Math.max((progress - 0.2) / 0.2, 0), 1);
+    const secondTransition = Math.min(Math.max((progress - 0.6) / 0.2, 0), 1);
+    const opacities = [
+      1 - firstTransition,
+      firstTransition * (1 - secondTransition),
+      secondTransition,
+    ];
+
+    designerSections.forEach((section, index) => {
+      const opacity = opacities[index] || 0;
+
+      section.style.opacity = opacity.toFixed(3);
+      section.style.pointerEvents = opacity > 0.5 ? "auto" : "none";
+    });
+  };
+
+  const requestDesignerUpdate = () => {
+    if (designerFrame !== null) return;
+    designerFrame = window.requestAnimationFrame(updateDesignerCards);
+  };
+
+  updateDesignerCards();
+  window.addEventListener("scroll", requestDesignerUpdate, { passive: true });
+  window.addEventListener("resize", requestDesignerUpdate);
+}
 
 if (philosophySection && philosophyTrack && philosophyBlocks.length) {
   philosophySection.classList.add("is-scroll-reveal-ready");

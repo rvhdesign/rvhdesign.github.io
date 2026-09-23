@@ -3298,16 +3298,57 @@ a {
 
 .story-designers-flow {
   position: relative;
+  height: 300vh;
+  background: #f7f3ee;
+}
+
+.story-designers-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
   background: #f7f3ee;
 }
 
 .story-designers__heading--shared {
-  position: sticky;
+  position: absolute;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: 3;
   margin: 0;
-  padding: clamp(40px, 5vw, 72px) clamp(28px, 7vw, 120px) 24px;
+  padding: clamp(90px, 9vw, 130px) clamp(28px, 7vw, 120px) 32px;
   background: #f7f3ee;
+}
+
+.story-designers-stage > .story-designers {
+  position: absolute;
+  top: clamp(150px, 15vw, 220px);
+  right: clamp(28px, 7vw, 120px);
+  left: clamp(28px, 7vw, 120px);
+  z-index: 1;
+  min-height: calc(100vh - clamp(150px, 15vw, 220px));
+  height: calc(100vh - clamp(150px, 15vw, 220px));
+  padding-top: 40px;
+  padding-bottom: 50px;
+  background: transparent;
+  transform: none;
+  transition: opacity .15s linear;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.story-designers-stage .designer-card {
+  padding-top: 32px;
+}
+
+.story-designers-stage > .story-designers:nth-of-type(2) {
+  z-index: 2;
+}
+
+.story-designers-stage > .story-designers:nth-of-type(3) {
+  z-index: 3;
 }
 
 .story-designers__heading p {
@@ -3337,8 +3378,11 @@ a {
 }
 
 .story-designers--single .story-designers__grid {
-  grid-template-columns: minmax(280px, 540px);
-  justify-content: center;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+}
+
+.story-designers--single .designer-card {
+  grid-column: 1;
 }
 
 .designer-card--younggwang .designer-card__skill {
@@ -3913,6 +3957,24 @@ a {
   .story-designers {
     min-height: 0;
     padding: 105px 24px;
+  }
+
+  .story-designers-stage > .story-designers {
+    top: 130px;
+    right: 0;
+    left: 0;
+    min-height: calc(100svh - 130px);
+    height: calc(100svh - 130px);
+    padding: 30px 24px 40px;
+  }
+
+  .story-designers-flow {
+    height: 300svh;
+  }
+
+
+  .story-designers__heading--shared {
+    padding: 80px 24px 24px;
   }
 
   .story-designers__grid {
