@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="rvh-asset-version" content="20260929-1"><title>제작과정 — RVH</title>  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.dynamic.css">
+<link rel="stylesheet" href="style.css?v=20260929-2"></head>
+<body class="biz-home">
+  <a class="biz-logotype" href="index.html" aria-label="RVHDESIGN 메인으로 이동">RVHDESIGN</a>
+  <header class="site-header"><nav class="main-nav" aria-label="주요 메뉴"><a href="about.html">회사소개</a><a href="portfolio.html" aria-current="page">포트폴리오</a><a href="package-design.html">패키지디자인</a><a href="logo-design.html">로고디자인</a><a href="contact.html">문의하기</a></nav><a class="biz-header-cta" href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer">카카오톡 상담하기</a></header>
+
+  <main class="page work-detail-page">
+    <a class="work-detail-back" href="portfolio.html">← 포트폴리오로 돌아가기</a>
+
+    <div data-work-detail>
+      <section class="wd-hero">
+        <span class="wd-hero__label" id="wdScopeLabel"></span>
+        <h1 class="wd-hero__title" id="wdTitleWrap">
+          <span class="wd-hero__title-en" id="wdTitleEn" hidden></span>
+          <span class="wd-hero__title-ko" id="wdTitleKo"></span>
+        </h1>
+        <p class="wd-hero__lede" id="wdLede" hidden></p>
+        <div class="wd-hero__meta" id="wdMeta"></div>
+        <figure class="wd-hero__image">
+          <img id="wdHeroImage" src="" alt="">
+          <figcaption id="wdHeroCaption" hidden></figcaption>
+        </figure>
+      </section>
+
+      <section class="wd-block" id="wdPlanningBlock" hidden>
+        <span class="wd-block__num">01 / PLANNING</span>
+        <h2 class="wd-block__title" id="wdPlanningTitle"></h2>
+        <p class="wd-block__text" id="wdPlanningText"></p>
+      </section>
+
+      <section class="wd-block" id="wdDesignBlock" hidden>
+        <span class="wd-block__num">02 / DESIGN</span>
+        <h2 class="wd-block__title" id="wdDesignTitle"></h2>
+        <p class="wd-block__text" id="wdDesignText" hidden></p>
+        <ul class="wd-aside-list" id="wdDesignList"></ul>
+      </section>
+
+      <section class="wd-block">
+        <span class="wd-block__num" id="wdSpecsNum">03 / PRODUCTION</span>
+        <h2 class="wd-block__title" id="wdSpecsTitle">제작 사양</h2>
+        <dl class="work-detail__specs" id="workDetailSpecs"></dl>
+      </section>
+
+      <section class="biz-final-cta">
+        <h2>이런 패키지,<br>저희와 함께 만들어보세요.</h2>
+        <a class="biz-btn-primary" href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer">카카오톡으로 상담하기 →</a>
+      </section>
+    </div>
+
+    <p class="work-detail__empty" id="workDetailEmpty" hidden>작업물을 찾을 수 없습니다. <a href="portfolio.html">포트폴리오로 돌아가기</a></p>
+  </main>
+
+  <a class="kakao-chat" href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 견적문의"><img class="kakao-chat__bubble" src="images/about/kakao-icon.png" alt="카카오톡"></a>
+
+  <script src="work-data.js?v=20260929-3"></script>
+  <script src="main.js?v=20260916-1"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const item = (typeof WORK_ITEMS !== "undefined" && id) ? WORK_ITEMS[id] : null;
+
+      const contentEl = document.querySelector("[data-work-detail]");
+      const emptyEl = document.getElementById("workDetailEmpty");
+
+      if (!item) {
+        if (contentEl) contentEl.hidden = true;
+        if (emptyEl) emptyEl.hidden = false;
+        return;
+      }
+
+      document.title = item.name + " — RVH";
+
+      const scopeLabelEl = document.getElementById("wdScopeLabel");
+      scopeLabelEl.textContent = item.scopeLabel || item.category || "";
+      if (item.year) {
+        const yearSpan = document.createElement("span");
+        yearSpan.textContent = " · " + item.year;
+        scopeLabelEl.appendChild(yearSpan);
+      }
+
+      const titleWrap = document.getElementById("wdTitleWrap");
+      const titleEnEl = document.getElementById("wdTitleEn");
+      const titleKoEl = document.getElementById("wdTitleKo");
+      if (item.titleEn) {
+        titleEnEl.textContent = item.titleEn;
+        titleEnEl.hidden = false;
+        titleWrap.classList.remove("wd-hero__title--no-en");
+      } else {
+        titleEnEl.hidden = true;
+        titleWrap.classList.add("wd-hero__title--no-en");
+      }
+      titleKoEl.textContent = item.name;
+
+      const ledeEl = document.getElementById("wdLede");
+      const ledeText = item.lede || item.blurb || "";
+      if (ledeText) {
+        ledeEl.textContent = ledeText;
+        ledeEl.hidden = false;
+      }
+
+      const metaEl = document.getElementById("wdMeta");
+      const metaItems = item.meta || [];
+      metaItems.forEach(function (m) {
+        const div = document.createElement("div");
+        div.className = "wd-hero__meta-item";
+        div.appendChild(document.createTextNode(m.label));
+        const b = document.createElement("b");
+        b.textContent = m.value;
+        div.appendChild(b);
+        metaEl.appendChild(div);
+      });
+      if (!metaItems.length) metaEl.hidden = true;
+
+      document.getElementById("wdHeroImage").src = item.image;
+      document.getElementById("wdHeroImage").alt = item.name;
+      const captionEl = document.getElementById("wdHeroCaption");
+      if (item.imageCaption) {
+        captionEl.textContent = item.imageCaption;
+        captionEl.hidden = false;
+      }
+
+      if (item.planning && item.planning.text) {
+        document.getElementById("wdPlanningBlock").hidden = false;
+        document.getElementById("wdPlanningTitle").textContent = item.planning.title || "";
+        document.getElementById("wdPlanningText").textContent = item.planning.text;
+      }
+
+      if (item.design && item.design.items && item.design.items.length) {
+        document.getElementById("wdDesignBlock").hidden = false;
+        document.getElementById("wdDesignTitle").textContent = item.design.title || "";
+        if (item.design.text) {
+          const designTextEl = document.getElementById("wdDesignText");
+          designTextEl.textContent = item.design.text;
+          designTextEl.hidden = false;
+        }
+        const listEl = document.getElementById("wdDesignList");
+        item.design.items.forEach(function (row) {
+          const li = document.createElement("li");
+          const b = document.createElement("b");
+          b.textContent = row.label;
+          li.appendChild(b);
+          li.appendChild(document.createTextNode(row.desc));
+          listEl.appendChild(li);
+        });
+      }
+
+      document.getElementById("wdSpecsNum").textContent = item.specsIsCommission ? "03 / REQUEST" : "03 / PRODUCTION";
+      document.getElementById("wdSpecsTitle").textContent = item.specsIsCommission ? "의뢰 내용" : "제작 사양";
+
+      const specsEl = document.getElementById("workDetailSpecs");
+      Object.keys(item.specs || {}).forEach(function (key) {
+        const dt = document.createElement("dt");
+        dt.textContent = key;
+        const dd = document.createElement("dd");
+        dd.textContent = item.specs[key];
+        specsEl.appendChild(dt);
+        specsEl.appendChild(dd);
+      });
+    })();
+  </script>
+</body>
+</html>

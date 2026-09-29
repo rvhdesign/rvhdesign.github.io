@@ -9,18 +9,15 @@
   <meta name="description" content="REVIVE HOUSE의 시작과 패키지 디자인에 대한 생각">
   <meta name="rvh-asset-version" content="20260816-1">
   <title>Our Story — REVIVE HOUSE</title>
-  <link rel="stylesheet" href="style.css?v=20260916-5">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.dynamic.css">
+  <link rel="stylesheet" href="style.css?v=20260929-2">
   <script src="asset-version.js?v=20260816-1" defer></script>
   <script src="main.js?v=20260916-1" defer></script>
 </head>
-<body class="story-body">
-  <a class="site-logo" href="index.html" aria-label="REVIVE HOUSE 메인으로 이동">
-    <span class="logo-spinner">
-      <i class="logo-edge logo-edge--right" aria-hidden="true"></i><i class="logo-edge logo-edge--left" aria-hidden="true"></i><i class="logo-edge logo-edge--top" aria-hidden="true"></i><i class="logo-edge logo-edge--bottom" aria-hidden="true"></i>
-      <img class="logo-face logo-face--front" src="images/about/revive-house-symbol.png?v=20260806-1" alt="REVIVE HOUSE">
-      <img class="logo-face logo-face--back" src="images/about/revive-house-symbol.png?v=20260806-1" alt="">
-    </span>
-  </a>
+<body class="story-body biz-home">
+  <a class="biz-logotype" href="index.html" aria-label="RVHDESIGN 메인으로 이동">RVHDESIGN</a>
 
   <header class="site-header">
     <nav class="main-nav" aria-label="주요 메뉴">
@@ -30,6 +27,7 @@
       <a href="logo-design.html">로고디자인</a>
       <a href="contact.html">문의하기</a>
     </nav>
+    <a class="biz-header-cta" href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer">카카오톡 상담하기</a>
   </header>
 
   <main class="story-page">
@@ -96,51 +94,12 @@
       </article>
     </section>
 
-    <div class="story-designers-flow">
-      <div class="story-designers-stage">
-        <div class="story-designers__heading story-designers__heading--shared">
+    <section class="story-designers" aria-labelledby="story-staff-title">
+      <div class="story-designers__heading">
         <p class="story-number">TEAM</p>
         <h2 id="story-staff-title">브랜드를 함께 만드는 팀을 소개합니다.</h2>
-        </div>
-      <section class="story-designers story-designers--staff" aria-labelledby="story-staff-title">
-      <div class="story-designers__grid">
-        <article class="designer-card">
-          <div class="designer-card__title">
-            <h3 class="designer-card__name">임상현</h3>
-            <span>CEO</span>
-          </div>
-          <span class="designer-card__skill designer-card__skill--empty" aria-hidden="true"></span>
-          <img class="designer-card__icon" src="images/about/상현.png?v=20260806-1" alt="임상현 프로필 일러스트">
-          <dl class="designer-card__details">
-            <dt>담당</dt>
-            <dd class="designer-card__responsibility">상담 / 문의 / 감리 / 발주</dd>
-            <dt>분야</dt>
-            <dd>브랜딩 / 콘텐츠</dd>
-            <dt>경력</dt>
-            <dd>'REVIVE HOUSE' 대표</dd>
-          </dl>
-        </article>
-        <article class="designer-card">
-          <div class="designer-card__title">
-            <h3 class="designer-card__name">노대철</h3>
-            <span>BRANDING DIRECTOR</span>
-          </div>
-          <span class="designer-card__skill designer-card__skill--empty" aria-hidden="true"></span>
-          <img class="designer-card__icon" src="images/about/대철형님.png?v=20260806-1" alt="노대철 프로필 일러스트">
-          <dl class="designer-card__details">
-            <dt>담당</dt>
-            <dd class="designer-card__responsibility">브랜딩</dd>
-            <dt>분야</dt>
-            <dd>브랜딩 / 디렉팅 / 인쇄물</dd>
-            <dt>경력</dt>
-            <dd>'클린앤디노' 대표</dd>
-          </dl>
-        </article>
       </div>
-      </section>
-
-      <section class="story-designers" aria-label="구서은과 구예은 디자이너 소개">
-      <div class="story-designers__grid">
+      <div class="story-designers__grid story-designers__grid--all">
         <article class="designer-card designer-card--seoeun">
           <div class="designer-card__title">
             <h3 class="designer-card__name">구서은</h3>
@@ -191,11 +150,6 @@
             </dd>
           </dl>
         </article>
-      </div>
-      </section>
-
-      <section class="story-designers story-designers--single" aria-label="주영광 디자이너 소개">
-      <div class="story-designers__grid">
         <article class="designer-card designer-card--younggwang">
           <div class="designer-card__title">
             <h3 class="designer-card__name">주영광</h3>
@@ -222,9 +176,7 @@
           </dl>
         </article>
       </div>
-      </section>
-      </div>
-    </div>
+    </section>
 
     <section class="story-location" aria-labelledby="story-location-title">
       <div class="story-section-head scroll-reveal">
@@ -247,6 +199,6 @@
     </section>
   </main>
 
-  <a class="kakao-chat" href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 견적문의"><img class="kakao-chat__bubble" src="images/about/카카오톡.png" alt="카카오톡"></a>
+  <a class="kakao-chat" href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 견적문의"><img class="kakao-chat__bubble" src="images/about/kakao-icon.png" alt="카카오톡"></a>
 </body>
 </html>
