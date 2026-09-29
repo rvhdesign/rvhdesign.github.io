@@ -4704,6 +4704,20 @@ a {
   white-space: nowrap;
 }
 
+/* 패키지디자인(box-menu-body) 스크롤 단계에서 헤더가 어두운 배경(--ink)으로
+   바뀔 때, 신규 텍스트 워드마크(.biz-logotype)와 카카오 상담 버튼이
+   기존 구(舊) 로고처럼 자동으로 색이 바뀌지 않아 어두운 글자가 어두운
+   배경에 묻혀 보이지 않던 문제 수정 (2026-09-29) */
+.box-menu-body.is-process-visible .biz-logotype,
+.box-menu-body.is-production-visible .biz-logotype {
+  color: #fff;
+}
+
+.box-menu-body.is-process-visible .biz-header-cta,
+.box-menu-body.is-production-visible .biz-header-cta {
+  z-index: 32;
+}
+
 /* ============================================
    BIZ HOME — header nav centering + kakao CTA
    (index.html only, desktop/tablet widths)
