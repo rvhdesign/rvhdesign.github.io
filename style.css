@@ -4642,8 +4642,10 @@ a {
 
 .biz-price-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 720px;
+  margin: 44px auto 0;
+  gap: 20px;
 }
 
 .biz-price-card {
@@ -4686,10 +4688,12 @@ a {
 @media (max-width: 900px) {
   .biz-price-grid {
     grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 16px;
   }
 }
 
-/* ---- TESTIMONIALS (예시 콘텐츠 — 실제 후기로 교체 전 게시 금지) ---- */
+/* ---- TESTIMONIALS ---- */
 .biz-testi-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
