@@ -4817,6 +4817,42 @@ a {
 }
 
 /* ============================================================
+   BIZ HOME — mobile header fix (2026-09-30)
+   과거 .home-body 전용으로 작성된 전역 모바일 미디어쿼리(max-width:640px,
+   760px)가 body class로 스코프되어 있지 않아 .site-header / .main-nav 를
+   직접 건드리는 바람에, 현재 .biz-home 페이지 모바일에서 헤더 배경이
+   검게 바뀌고 메뉴가 화면 밖으로 넘치던 문제를 .biz-home 스코프로 복구.
+   ============================================================ */
+@media (max-width: 640px) {
+  .biz-home .site-header {
+    background: var(--paper);
+    padding: 18px 6vw 16px;
+  }
+
+  .biz-home .biz-logotype {
+    top: 20px;
+    font-size: 15px;
+  }
+
+  .biz-home .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 30px 0 0;
+    gap: 8px 14px;
+  }
+
+  .biz-home .main-nav a {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .biz-home .biz-header-cta {
+    display: none;
+  }
+}
+
+/* ============================================================
    WORK SLIDER — portfolio.html 전용 가로 슬라이더
    (기존 .portfolio-item/.portfolio-list와는 별개 네임스페이스라
    logo-design.html의 정적 그리드에는 영향을 주지 않습니다)
