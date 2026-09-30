@@ -4376,18 +4376,21 @@ a {
   border-top: 0;
 }
 
-/* ---- HERO (2026-09-30: 사진이 먼저 크게 나오고 텍스트가 아래로 오는
-   스택형 레이아웃으로 변경 — concept-small-biz-homepage.html 초안 참고) ---- */
+/* ---- HERO (2026-09-30: Gentle Monster 참고 — 풀블리드 사진 위에
+   텍스트/버튼을 오버레이하는 레이아웃으로 변경) ---- */
 .biz-hero {
-  padding-bottom: 70px;
-  border-bottom: 1px solid var(--gray);
+  margin-left: -8vw;
+  margin-right: -8vw;
+  width: calc(100% + 16vw);
+  margin-bottom: 70px;
 }
 
 .biz-hero__media {
-  margin-bottom: 44px;
-  border-radius: 4px;
+  position: relative;
+  height: 82vh;
+  min-height: 480px;
+  max-height: 760px;
   overflow: hidden;
-  aspect-ratio: 16 / 8;
   background: var(--paper);
 }
 
@@ -4397,27 +4400,43 @@ a {
   object-fit: cover;
 }
 
+.biz-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, .58) 100%);
+  pointer-events: none;
+}
+
 .biz-hero__copy {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 40px;
-  align-items: end;
+  position: absolute;
+  left: 8vw;
+  right: 8vw;
+  bottom: 56px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
 }
 
 .biz-hero__copy h1 {
   margin: 0;
-  font-size: clamp(26px, 3.4vw, 38px);
+  max-width: 680px;
+  font-size: clamp(24px, 3.4vw, 38px);
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -.05em;
   word-break: keep-all;
+  color: #fff;
 }
 
 .biz-hero__actions {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
 .biz-btn-primary {
@@ -4441,21 +4460,43 @@ a {
 }
 
 .biz-btn-secondary {
-  font-size: 14px;
-  color: #77716a;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 26px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, .75);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  transition: background .2s ease, color .2s ease;
+}
+
+.biz-btn-secondary:hover,
+.biz-btn-secondary:focus-visible {
+  background: #fff;
+  color: #1a1a1a;
 }
 
 @media (max-width: 780px) {
   .biz-hero__media {
-    aspect-ratio: 4 / 3;
-    margin-bottom: 28px;
+    height: 68vh;
+    min-height: 420px;
   }
   .biz-hero__copy {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    align-items: start;
+    left: 6vw;
+    right: 6vw;
+    bottom: 32px;
+    gap: 18px;
+  }
+  .biz-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .biz-btn-primary,
+  .biz-btn-secondary {
+    justify-content: center;
   }
 }
 
