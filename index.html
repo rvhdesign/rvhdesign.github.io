@@ -13,10 +13,11 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.dynamic.css">
-  <link rel="stylesheet" href="style.css?v=20260930-5">
+  <link rel="stylesheet" href="style.css?v=20260930-6">
   <script src="asset-version.js?v=20260816-1" defer></script>
   <script src="main.js?v=20260916-1" defer></script>
   <script src="work-slider.js?v=20260928-1" defer></script>
+  <script src="hero-slider.js?v=20260930-1" defer></script>
 </head>
 <body class="biz-home">
   <a class="biz-logotype" href="index.html" aria-label="RVHDESIGN 메인으로 이동">RVHDESIGN</a>
@@ -35,8 +36,15 @@
   <main class="page biz-page">
 
     <section class="biz-hero">
-      <div class="biz-hero__media">
-        <img src="images/about/tone-paper-products.png?v=20260806-1" alt="RVH DESIGN이 제작한 톤페이퍼 패키지 제품 실사">
+      <div class="biz-hero__media" data-hero-slider>
+        <img class="is-active" src="images/about/tone-paper-products.png?v=20260806-1" alt="RVH DESIGN이 제작한 톤페이퍼 패키지 제품 실사">
+        <img src="images/about/studio-flatlay.png?v=20260930-1" alt="RVH DESIGN 스튜디오 작업 플랫레이">
+        <img src="images/about/story-hero.png?v=20260930-1" alt="RVH DESIGN 패키지 제작 과정">
+        <div class="biz-hero__dots" aria-hidden="true">
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="biz-hero__copy">
           <h1>소상공인의 브랜드,<br>실제로 쓸 수 있는 로고와 패키지로 만들어 드립니다.</h1>
           <div class="biz-hero__actions">
