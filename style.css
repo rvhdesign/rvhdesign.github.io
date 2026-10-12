@@ -4416,6 +4416,15 @@ a {
   opacity: 1;
 }
 
+/* 모바일처럼 좌우가 잘리는 화면에서 제품이 중앙에 오도록 초점 위치 지정 */
+.biz-hero__media img.hero-img--jeju {
+  object-position: 66% center;
+}
+
+.biz-hero__media img.hero-img--tone {
+  object-position: 76% center;
+}
+
 .biz-hero__dots {
   position: absolute;
   right: 8vw;
