@@ -207,21 +207,9 @@ contactForm?.addEventListener("submit", (event) => {
 
   submitButton.disabled = true;
 
-  fetch(contactForm.action, {
-    method: contactForm.method || "POST",
-    body: new FormData(contactForm),
-    headers: { Accept: "application/json" },
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error("문의 전송에 실패했습니다.");
-      contactModal.hidden = false;
-    })
-    .catch(() => {
-      window.alert("문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
-    })
-    .finally(() => {
-      submitButton.disabled = false;
-    });
+  // 일반 전송: FormSubmit이 처리한 뒤 _next 주소(contact.html?sent=1)로 돌아옵니다.
+  // 첨부파일도 함께 전송됩니다.
+  contactForm.submit();
 });
 
 contactForm?.querySelectorAll("[required]").forEach((input) => {
@@ -233,4 +221,14 @@ contactForm?.querySelectorAll("[required]").forEach((input) => {
 contactModalClose?.addEventListener("click", () => {
   contactModal.hidden = true;
   window.location.href = "contact.html";
+});
+
+// 전송 완료 후 돌아왔을 때(?sent=1) 접수 완료 안내창을 표시합니다.
+if (contactModal && new URLSearchParams(window.location.search).get("sent") === "1") {
+  contactModal.hidden = false;
+}
+
+// 뒤로 가기로 돌아왔을 때 전송 버튼이 비활성화된 채 남지 않도록 합니다.
+window.addEventListener("pageshow", () => {
+  if (submitButton) submitButton.disabled = false;
 });
