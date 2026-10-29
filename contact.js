@@ -1,7 +1,6 @@
 const contactForm = document.querySelector(".contact-form");
 const packageTypeInputs = document.querySelectorAll('input[name="제품형태[]"]');
 const discoveryInputs = document.querySelectorAll('input[name="유입경로[]"]');
-const fileInputs = document.querySelectorAll(".native-file-input");
 const guideItems = document.querySelectorAll(".contact-guide div");
 const guideLinks = document.querySelectorAll(".contact-guide a");
 const formSections = document.querySelectorAll(".contact-form .form-section");
@@ -143,17 +142,6 @@ discoveryInputs.forEach((input) => {
   input.addEventListener("change", validateDiscovery);
 });
 
-fileInputs.forEach((input) => {
-  input.addEventListener("change", () => {
-    const uploadLabel = document.querySelector(`label[for="${input.id}"] small`);
-    const file = input.files?.[0];
-
-    if (uploadLabel && file) {
-      uploadLabel.textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(1)}MB`;
-    }
-  });
-});
-
 contactForm?.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -193,22 +181,11 @@ contactForm?.addEventListener("submit", (event) => {
     return;
   }
 
-  const totalFileSize = [...fileInputs].reduce(
-    (total, input) => total + (input.files?.[0]?.size || 0),
-    0
-  );
-
-  if (totalFileSize > 10 * 1024 * 1024) {
-    window.alert("첨부파일 전체 용량은 10MB 이하로 선택해 주세요.");
-    return;
-  }
-
   if (!submitButton) return;
 
   submitButton.disabled = true;
 
-  // 일반 전송: FormSubmit이 처리한 뒤 _next 주소(contact.html?sent=1)로 돌아옵니다.
-  // 첨부파일도 함께 전송됩니다.
+  // 일반 전송: Web3Forms가 처리한 뒤 redirect 주소(contact.html?sent=1)로 돌아옵니다.
   contactForm.submit();
 });
 

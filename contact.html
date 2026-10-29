@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.dynamic.css">
-  <link rel="stylesheet" href="style.css?v=20261016-3">
+  <link rel="stylesheet" href="style.css?v=20261029-1">
   <script src="asset-version.js?v=20260816-1" defer></script>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script src="contact.js?v=20261029-1" defer></script>
+  <script src="contact.js?v=20261029-2" defer></script>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
@@ -57,11 +57,12 @@
         </div>
       </div>
 
-    <form class="contact-form" action="https://formsubmit.co/42afe4dcf24f4aa0275920afac39d0ce" method="post" enctype="multipart/form-data" novalidate>
-      <input type="hidden" name="_subject" value="[RVH DESIGN] 새로운 프로젝트 문의">
-      <input type="hidden" name="_next" value="https://rvh-design.com/contact.html?sent=1">
-      <input type="hidden" name="_template" value="table">
-      <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="post" novalidate>
+      <input type="hidden" name="access_key" value="7c7dbd8a-f491-490f-b76c-bd4e16145736">
+      <input type="hidden" name="subject" value="[RVH DESIGN] 새로운 프로젝트 문의">
+      <input type="hidden" name="from_name" value="RVH DESIGN 홈페이지">
+      <input type="hidden" name="redirect" value="https://rvh-design.com/contact.html?sent=1">
+      <input class="form-honeypot" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
 
       <p class="form-success" role="status" aria-live="polite">
         문의가 접수되었습니다. 내용을 확인한 뒤 연락드리겠습니다.
@@ -185,22 +186,9 @@
           </div>
         </div>
 
-        <div class="form-row form-row--two">
-          <div class="form-field form-field--step-start" id="reference-file-field">
-            <label for="reference-file">기획 및 참고 자료</label>
-            <label class="file-upload" for="reference-file">
-              <span>파일 선택</span>
-              <small>PDF, JPG, PNG, ZIP · 최대 10MB</small>
-            </label>
-            <input class="native-file-input" id="reference-file" name="기획_레퍼런스_파일" type="file" accept=".pdf,.jpg,.jpeg,.png,.zip">
-          </div>
-          <div class="form-field form-field--file-secondary">
-            <label class="file-upload" for="production-file">
-              <span>파일 선택</span>
-              <small>AI, PDF, JPG, PNG, ZIP · 최대 10MB</small>
-            </label>
-            <input class="native-file-input" id="production-file" name="기타_제작_파일" type="file" accept=".ai,.pdf,.jpg,.jpeg,.png,.zip">
-          </div>
+        <div class="form-field form-field--step-start" id="reference-file-field">
+          <label>기획 및 참고 자료</label>
+          <p class="file-notice">참고 이미지·기획서·AI 파일 등은 <a href="https://open.kakao.com/o/sEXWWdHi" target="_blank" rel="noopener noreferrer">카카오톡 상담</a>으로 보내주세요. 문의 내용과 함께 확인해 드리겠습니다.</p>
         </div>
 
         <div class="form-field">

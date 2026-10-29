@@ -5444,3 +5444,16 @@ a {
     flex-direction: column;
   }
 }
+
+/* 문의폼: 첨부파일 대신 카카오톡 안내 */
+.file-notice {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: inherit;
+  opacity: 0.75;
+}
+.file-notice a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
